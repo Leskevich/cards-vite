@@ -1,5 +1,6 @@
 import { useGetPackQuery } from './decksApi'
 
+import { Delete, Edit, PlayCircle } from '@/assets/icons'
 import {
   Table,
   TableBody,
@@ -23,6 +24,7 @@ export const Decks = () => {
             <TableHeadCell>Cards</TableHeadCell>
             <TableHeadCell>Last Updated</TableHeadCell>
             <TableHeadCell>Created by</TableHeadCell>
+            <TableHeadCell></TableHeadCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -33,6 +35,11 @@ export const Decks = () => {
                 <TableCell>{el.cardsCount}</TableCell>
                 <TableCell>{el.updated}</TableCell>
                 <TableCell>{el.created}</TableCell>
+                <TableCell>
+                  <PlayCircle />
+                  <Edit />
+                  <Delete />
+                </TableCell>
               </TableRow>
             )
           })}
