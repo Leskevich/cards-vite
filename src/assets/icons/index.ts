@@ -1,1 +1,6 @@
+export { default as Check } from '@/assets/icons/Check.tsx'
 export { default as Logout } from '@/assets/icons/Logout.tsx'
+export { default as Search } from '@/assets/icons/Search.tsx'
+export { default as Close } from '@/assets/icons/Close.tsx'
+export { default as EyeSlash } from '@/assets/icons/EyeSlash.tsx'
+export { default as Eye } from '@/assets/icons/Eye.tsx'
