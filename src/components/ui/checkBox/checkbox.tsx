@@ -9,7 +9,7 @@ import { Check } from '@/assets/icons'
 
 export type CheckboxProps = {
   checked?: boolean
-  onChange?: (checked: boolean) => void
+  onValueChange?: (checked: boolean) => void
   disabled?: boolean
   required?: boolean
   label?: string
@@ -18,7 +18,7 @@ export type CheckboxProps = {
 }
 
 export const Checkbox = (props: CheckboxProps) => {
-  const { checked, onChange, disabled, required, label, id } = props
+  const { checked, onValueChange, disabled, required, label, id } = props
 
   const classNames = {
     container: s.container,
@@ -35,7 +35,7 @@ export const Checkbox = (props: CheckboxProps) => {
           <CheckboxRadix.Root
             className={classNames.root}
             checked={checked}
-            onCheckedChange={onChange}
+            onCheckedChange={onValueChange}
             disabled={disabled}
             required={required}
             id={id}

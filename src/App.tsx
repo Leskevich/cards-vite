@@ -1,20 +1,9 @@
-import { useState } from 'react'
-
-import { Checkbox } from '@/components/ui/checkBox/checkbox.tsx'
+import { LoginForm } from '@/components/auth/loginForm/LoginForm.tsx'
 
 export function App() {
-  const [check, setCheck] = useState<boolean>(true)
-
   return (
     <>
-      <Checkbox
-        label={'dscsdcsdcc'}
-        checked={check}
-        // disabled={true}
-        onChange={() => {
-          setCheck(state => !state)
-        }}
-      />
+      <LoginForm />
     </>
   )
 }
