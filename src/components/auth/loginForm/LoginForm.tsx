@@ -44,13 +44,15 @@ export const LoginForm = () => {
           type={'password'}
           errorMessage={errors.password?.message}
         />
+        <TextField label={'Search'} type={'search'} errorMessage={errors.password?.message} />
         <ControlledCheckbox
           control={control}
           label={'RememberMe'}
           name={'rememberMe'}
           defaultValue={false}
         />
-        <Button type={'submit'} />
+        <input type={'search'} />
+        <Button type={'submit'}>add</Button>
       </form>
     </div>
   )
