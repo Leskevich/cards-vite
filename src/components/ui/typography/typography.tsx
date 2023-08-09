@@ -48,37 +48,35 @@ const createTypographyComponent = <T extends ReactTag>(
 }
 
 export const Typography = {
+  Large: createTypographyComponent('large'),
   H1: createTypographyComponent('h1'),
   H2: createTypographyComponent('h2'),
   H3: createTypographyComponent('h3'),
   Subtitle1: createTypographyComponent('subtitle1'),
   Subtitle2: createTypographyComponent('subtitle2'),
-  SubtitleLink: createTypographyComponent('subtitleLink'),
   Body1: createTypographyComponent('body1'),
   Body2: createTypographyComponent('body2'),
   Overline: createTypographyComponent('overline'),
   Caption: createTypographyComponent('caption'),
-  CaptionBold: createTypographyComponent('captionBold'),
-  CaptionLink: createTypographyComponent('captionLink'),
-  Link: createTypographyComponent('link'),
+  Link1: createTypographyComponent('link1'),
+  Link2: createTypographyComponent('link2'),
   Error: createTypographyComponent('error'),
 }
 
 const COMPONENTS = {
+  large: 'p',
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',
-  subtitle1: 'p',
-  subtitle2: 'p',
-  subtitleLink: 'span',
   body1: 'p',
   body2: 'p',
-  overline: 'p',
+  subtitle1: 'p',
+  subtitle2: 'p',
   caption: 'caption',
-  captionBold: 'caption',
-  captionLink: 'a',
+  overline: 'p',
+  link1: 'a',
+  link2: 'a',
   error: 'span',
-  link: 'a',
 } as const
 
 type Component = keyof typeof COMPONENTS
