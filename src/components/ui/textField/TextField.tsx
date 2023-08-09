@@ -31,24 +31,24 @@ export const TextField = (props: TextFieldProps) => {
     onKeyDown?.(e)
   }
   const classNames = {
-    root: clsx(s.box, className),
-    label: s.label,
+    root: clsx(className, s.box),
+    label: clsx(rest.disabled && s.disable),
     input: clsx(s.input, showError && s.error),
     iconStart: s.iconStart,
-    iconEnd: s.iconEnd,
-    inputContainer: s.inputContainer,
+    iconEnd: s.showClose,
+    inputContainer: clsx(s.inputContainer),
+    showPassword: s.showPassword,
   }
 
-  const isShowClearButton =
-    onClearClick && typeof rest.value === 'string' && rest?.value?.length > 0
+  const isShowClearButton = !!onClearClick && String(rest?.value).length > 0
 
   const dataIconStart = type === 'search' ? 'start' : ''
-  const dataIconEnd = (isShowClearButton && type === 'search') || type === 'password' ? 'end' : ''
+  const dataIconEnd = isShowClearButton || type === 'password' ? 'end' : ''
   const dataIcon = dataIconStart + dataIconEnd
 
   return (
     <div className={classNames.root}>
-      <Label label={label}>
+      <Label label={label} className={classNames.label}>
         <div className={classNames.inputContainer}>
           {!!dataIconStart && (
             <span className={classNames.iconStart}>
@@ -64,7 +64,7 @@ export const TextField = (props: TextFieldProps) => {
           />
           {type === 'password' && (
             <button
-              className={s.showPassword}
+              className={classNames.showPassword}
               type={'button'}
               onClick={() => setShowPassword(prev => !prev)}
             >

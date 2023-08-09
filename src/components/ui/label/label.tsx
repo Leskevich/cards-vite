@@ -16,7 +16,7 @@ export const Label: FC<LabelProps> = ({ label, children, className, ...rest }) =
 
   return (
     <LabelRadixUI.Root {...rest}>
-      {!!label && <div className={classNames.label}>{label}</div>}
+      {!!label && <span className={classNames.label}>{label}</span>}
       {children}
     </LabelRadixUI.Root>
   )

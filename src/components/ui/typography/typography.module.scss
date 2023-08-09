@@ -51,6 +51,7 @@
   @include typography(var(--font-size-s), var(--line-height-m), var(--font-weight-regular));
 
   cursor: pointer;
+  color: var(--color-info-500);
   text-decoration-line: underline;
 }
 
@@ -58,6 +59,7 @@
   @include typography(var(--font-size-xs), var(--line-height-s), var(--font-weight-regular));
 
   cursor: pointer;
+  color: var(--color-info-500);
   text-decoration-line: underline;
 }
 

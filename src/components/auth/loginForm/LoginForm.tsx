@@ -1,26 +1,27 @@
+import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { boolean, z } from 'zod'
 
 import { ControlledCheckbox } from '@/components/ui'
 import { Button } from '@/components/ui/button'
-import { TextField } from '@/components/ui/textField/TextField.tsx'
+import { ControlledTextField } from '@/components/ui/control/cotrolled-textFild/controlled-textFild.tsx'
 
 export const LoginForm = () => {
   const loginSchema = z.object({
     email: z.string().email(),
     password: z.string().min(3),
-    rememberMe: boolean().default(false),
+    rememberMe: boolean(),
   })
 
   type LoginSchema = z.infer<typeof loginSchema>
 
   const {
     control,
-    register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginSchema>({
+    defaultValues: { rememberMe: false, password: '', email: '' },
     resolver: zodResolver(loginSchema),
   })
 
@@ -32,26 +33,22 @@ export const LoginForm = () => {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <TextField
-          {...register('email')}
+        <DevTool control={control} />
+        <ControlledTextField
+          control={control}
+          name={'email'}
           label={'Email'}
           type={'text'}
           errorMessage={errors.email?.message}
         />
-        <TextField
-          {...register('password')}
+        <ControlledTextField
+          control={control}
+          name={'password'}
           label={'Password'}
           type={'password'}
-          errorMessage={errors.password?.message}
+          errorMessage={errors.email?.message}
         />
-        <TextField label={'Search'} type={'search'} errorMessage={errors.password?.message} />
-        <ControlledCheckbox
-          control={control}
-          label={'RememberMe'}
-          name={'rememberMe'}
-          defaultValue={false}
-        />
-        <input type={'search'} />
+        <ControlledCheckbox control={control} label={'RememberMe'} name={'rememberMe'} />
         <Button type={'submit'}>add</Button>
       </form>
     </div>
