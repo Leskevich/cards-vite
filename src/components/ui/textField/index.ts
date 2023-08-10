@@ -1,1 +1,1 @@
-export * from '@/components/ui/textField/TextField.tsx'
+export * from './TextField.tsx'

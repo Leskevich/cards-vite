@@ -5,8 +5,7 @@ import { clsx } from 'clsx'
 import s from './textField.module.scss'
 
 import { Close, Eye, EyeSlash, Search } from '@/assets/icons'
-import { Label } from '@/components/ui'
-import { Typography } from '@/components/ui/typography'
+import { Label, Typography } from '@/components/ui'
 
 export type TextFieldProps = {
   label?: string

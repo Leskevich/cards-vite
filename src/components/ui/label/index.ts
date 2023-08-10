@@ -1,1 +1,1 @@
-export * from '@/components/ui/label/label.tsx'
+export * from './label.tsx'
