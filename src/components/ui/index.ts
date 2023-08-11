@@ -1,4 +1,6 @@
-export * from './control/controlled-checkBox'
-
 export * from './checkBox'
 export * from './label'
+export * from './button'
+export * from './textField'
+export * from './typography'
+export * from './control'
