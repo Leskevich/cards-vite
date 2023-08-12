@@ -5,6 +5,8 @@ import { clsx } from 'clsx'
 
 import s from './label.module.scss'
 
+import { Typography } from '@/components/ui'
+
 export type LabelProps = {
   label?: ReactNode
 } & ComponentPropsWithoutRef<'label'>
@@ -16,7 +18,7 @@ export const Label: FC<LabelProps> = ({ label, children, className, ...rest }) =
 
   return (
     <LabelRadixUI.Root {...rest}>
-      {!!label && <span className={classNames.label}>{label}</span>}
+      {!!label && <Typography.Body2 className={classNames.label}>{label}</Typography.Body2>}
       {children}
     </LabelRadixUI.Root>
   )

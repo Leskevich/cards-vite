@@ -12,7 +12,6 @@ export type ReactTag = keyof JSX.IntrinsicElements | JSXElementConstructor<any>
 export type TypographyProps<Ttag extends ReactTag> = {
   children: ReactNode
   component?: Ttag
-  className?: string
   mb?: number | string
   mt?: number | string
   mr?: number | string

@@ -1,9 +1,9 @@
-import { LoginForm } from '@/components/auth/loginForm/LoginForm.tsx'
+import { SingIn } from '@/components/auth'
 
 export function App() {
   return (
     <>
-      <LoginForm />
+      <SingIn />
     </>
   )
 }
