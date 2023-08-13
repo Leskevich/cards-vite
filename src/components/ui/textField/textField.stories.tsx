@@ -17,6 +17,13 @@ export const Default: Story = {
     placeholder: 'Placeholder',
   },
 }
+export const Search: Story = {
+  args: {
+    label: 'Label',
+    type: 'search',
+    placeholder: 'Placeholder',
+  },
+}
 
 export const Password: Story = {
   args: {
