@@ -1,12 +1,23 @@
 import { SVGProps, Ref, forwardRef, memo } from 'react'
 
 const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} ref={ref} {...props}>
-    <path d="M18.23 9.58c-.54-.92-3.47-5.56-8.46-5.41-4.6.11-7.27 4.16-8 5.41a.83.83 0 0 0 0 .84c.53.9 3.34 5.41 8.25 5.41h.2c4.61-.11 7.29-4.16 8-5.41a.83.83 0 0 0 0-.84Zm-8.05 4.59c-3.59.08-5.93-3-6.66-4.17.83-1.34 3-4.08 6.34-4.17 3.57-.09 5.92 3 6.66 4.17-.85 1.34-3 4.08-6.34 4.17Z" />
-    <path d="M10 7.08a2.92 2.92 0 1 0 0 5.84 2.92 2.92 0 0 0 0-5.84Zm0 4.17a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Z" />
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={20}
+    height={20}
+    fill="none"
+    viewBox="0 0 24 24"
+    ref={ref}
+    {...props}
+  >
+    <path
+      fill="#fff"
+      fillRule="evenodd"
+      d="M12 4.5C7 4.5 2.73 7.6 1 12a11.83 11.83 0 0 0 22 0c-1.73-4.39-6-7.5-11-7.5zM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"
+      clipRule="evenodd"
+    />
   </svg>
 )
 const ForwardRef = forwardRef(SvgComponent)
-const Memo = memo(ForwardRef)
 
-export default Memo
+export default memo(ForwardRef)

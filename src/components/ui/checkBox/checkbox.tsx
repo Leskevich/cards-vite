@@ -40,7 +40,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   return (
     <div className={classNames.container}>
       <LabelRadix.Root asChild>
-        <Typography.Body2 className={classNames.label} as={'label'}>
+        <Typography variant={'body2'} as={'label'} className={classNames.label}>
           <div className={classNames.buttonWrapper}>
             <CheckboxRadix.Root
               className={classNames.root}
@@ -55,7 +55,7 @@ export const Checkbox: FC<CheckboxProps> = ({
             </CheckboxRadix.Root>
           </div>
           {label}
-        </Typography.Body2>
+        </Typography>
       </LabelRadix.Root>
     </div>
   )
