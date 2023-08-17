@@ -1,11 +1,15 @@
 import { SVGProps, Ref, forwardRef, memo } from 'react'
 
 const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" ref={ref} {...props}>
-    <path
-      fill="#4c4c4c"
-      d="m20.71 19.29-3.4-3.39a7.92 7.92 0 0 0 .34-9.34A8 8 0 1 0 15.9 17.3l3.39 3.4a1 1 0 1 0 1.42-1.42ZM5 11a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
-    />
+  <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} ref={ref} {...props}>
+    <g clipPath="url(#a)">
+      <path d="m17.26 16.07-2.84-2.82a6.6 6.6 0 0 0 .29-7.79 6.67 6.67 0 1 0-1.46 8.97l2.82 2.83a.83.83 0 0 0 1.37-.27.83.83 0 0 0-.18-.91Zm-13.1-6.9a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z" />
+    </g>
+    <defs>
+      <clipPath id="a">
+        <path d="M0 0h20v20H0z" />
+      </clipPath>
+    </defs>
   </svg>
 )
 const ForwardRef = forwardRef(SvgComponent)
