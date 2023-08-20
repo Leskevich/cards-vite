@@ -1,12 +1,9 @@
-import { SingIn } from '@/components/auth'
-import { TextField } from '@/components/ui'
+import { SignIn } from '@/components/auth'
 
 export function App() {
   return (
     <>
-      <SingIn />
-      <TextField onClearClick={() => {}} />
-      <TextField type={'search'} />
+      <SignIn onSubmit={s => console.log(s)} />
     </>
   )
 }

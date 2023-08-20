@@ -78,7 +78,7 @@ export const TextField = (props: TextFieldProps) => {
         </div>
       </Label>
 
-      {showError && <Typography.Error>{errorMessage}</Typography.Error>}
+      {showError && <Typography variant={'error'}>{errorMessage}</Typography>}
     </div>
   )
 }

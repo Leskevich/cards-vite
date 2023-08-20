@@ -17,13 +17,6 @@ export const Default: Story = {
     placeholder: 'Placeholder',
   },
 }
-export const Search: Story = {
-  args: {
-    label: 'Label',
-    type: 'search',
-    placeholder: 'Placeholder',
-  },
-}
 
 export const Password: Story = {
   args: {
@@ -38,5 +31,11 @@ export const Error: Story = {
     label: 'Input with error',
     value: 'Wrong value',
     errorMessage: 'Error message',
+  },
+}
+export const Search: Story = {
+  args: {
+    label: 'Input with error',
+    type: 'search',
   },
 }

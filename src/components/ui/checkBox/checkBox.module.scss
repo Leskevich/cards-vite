@@ -61,11 +61,11 @@
   &:focus-within,
   &:hover:not(.disabled),
   &:hover .root:not([data-state='checked']) {
-    background-color: var(--color-bg-focus);
+    background-color: var(--color-dark-500);
   }
 
   &:active:not(.disabled) {
-    background-color: var(--color-bg-primary-active);
+    background-color: var(--color-dark-100);
   }
 
   &.left {
@@ -74,6 +74,6 @@
 }
 
 .indicator {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
 }
