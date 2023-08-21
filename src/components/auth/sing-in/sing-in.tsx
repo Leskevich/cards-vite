@@ -3,9 +3,9 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import s from './sing-in.module.scss'
+import { Button, Card, ControlledCheckbox, ControlledTextField, Typography } from '../../ui'
 
-import { Button, Card, ControlledCheckbox, ControlledTextField, Typography } from '@/components/ui'
+import s from './sing-in.module.scss'
 
 const schema = z.object({
   email: z.string().email('Invalid email address').nonempty('Enter email'),
@@ -61,7 +61,7 @@ export const SignIn = (props: Props) => {
             control={control}
             name={'rememberMe'}
           />
-          <Typography variant="body2" as={'a'} href="/google" className={s.recoverPasswordLink}>
+          <Typography variant="body2" as="a" href="/google" className={s.recoverPasswordLink}>
             Forgot Password?
           </Typography>
           <Button className={s.button} fullWidth type={'submit'}>
@@ -69,10 +69,9 @@ export const SignIn = (props: Props) => {
           </Button>
         </form>
         <Typography className={s.caption} variant="body2">
-          {/* eslint-disable-next-line react/no-unescaped-entities */}
-          Don't have an account?
+          {`Don't have an account?`}
         </Typography>
-        <Typography variant="link1" className={s.signUpLink}>
+        <Typography variant="link1" as={'a'} className={s.signUpLink}>
           Sign Up
         </Typography>
       </Card>
