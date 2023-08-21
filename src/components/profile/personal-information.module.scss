@@ -1,0 +1,58 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  max-width: 420px;
+  padding-top: 32px;
+  padding-bottom: 40px;
+}
+
+.title {
+  margin-bottom: 26px;
+}
+
+.container {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  margin-bottom: 6px;
+}
+
+.ava {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50px;
+}
+
+.wrapperIcon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+
+  background-color: var(--color-dark-300);
+  border-radius: 4px;
+  box-shadow: 0 2px 10px 0 rgb(109 109 109 / 25%);
+
+  fill: var(--color-light-100);
+}
+
+.containerName {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  fill: var(--color-light-100);
+}
+
+.email {
+  margin-bottom: 12px;
+}
