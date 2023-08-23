@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.trigger {
+  cursor: pointer;
+
+  display: inline-flex;
+
+  height: 36px;
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+}
+
+.itemInformation {
+  gap: 8px;
+}

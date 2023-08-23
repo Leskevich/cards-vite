@@ -4,8 +4,16 @@ import { TextField } from './'
 
 const meta = {
   title: 'Components/TextField',
+
   component: TextField,
   tags: ['autodocs'],
+  argTypes: {
+    type: {
+      options: ['search', 'password', 'text'],
+      control: { type: 'radio' },
+    },
+    onClearClick: { type: 'boolean' },
+  },
 } satisfies Meta<typeof TextField>
 
 export default meta
@@ -15,6 +23,7 @@ export const Default: Story = {
   args: {
     label: 'Label',
     placeholder: 'Placeholder',
+    onClearClick: () => {},
   },
 }
 
