@@ -1,18 +1,35 @@
-import { SVGProps, Ref, forwardRef, memo } from 'react'
+import { IconProps, IconWrapper } from './IconWrapper'
 
-const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} ref={ref} {...props}>
-    <g clipPath="url(#a)">
-      <path d="m17.26 16.07-2.84-2.82a6.6 6.6 0 0 0 .29-7.79 6.67 6.67 0 1 0-1.46 8.97l2.82 2.83a.83.83 0 0 0 1.37-.27.83.83 0 0 0-.18-.91Zm-13.1-6.9a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z" />
-    </g>
-    <defs>
-      <clipPath id="a">
-        <path d="M0 0h20v20H0z" />
-      </clipPath>
-    </defs>
-  </svg>
-)
-const ForwardRef = forwardRef(SvgComponent)
-const Memo = memo(ForwardRef)
+const Search = (allProps: IconProps) => {
+  const { svgProps: props, ...restProps } = allProps
 
-export default Memo
+  return (
+    <IconWrapper
+      icon={
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          {...props}
+        >
+          <g clipPath="url(#prefix__clip0_124_21514)">
+            <path
+              d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+              fill="currentColor"
+            />
+          </g>
+          <defs>
+            <clipPath id="prefix__clip0_124_21514">
+              <path fill="#fff" d="M0 0h24v24H0z" />
+            </clipPath>
+          </defs>
+        </svg>
+      }
+      {...restProps}
+    />
+  )
+}
+
+export default Search

@@ -1,109 +1,76 @@
-.box {
-  display: flex;
-  flex-direction: column;
-}
-
-.disable {
-  color: var(--color-dark-300);
-}
-
-.inputContainer {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.iconStart {
-  position: absolute;
-  top: 50%;
-  left: 12px;
-  transform: translateY(-50%);
-
-  display: flex;
-  align-items: center;
-
-  height: 100%;
-
-  fill: var(--color-dark-100);
-}
-
-.input {
+.root {
   width: 100%;
-  height: 36px;
+}
+
+.fieldContainer {
+  position: relative;
+  width: 100%;
+}
+
+.field {
+  width: 100%;
   padding: 6px 12px;
 
-  font-size: var(--font-size-m);
-  line-height: var(--line-height-m);
-  color: var(--color-dark-100);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--color-light-100);
 
-  background-color: transparent;
+  background: transparent;
   border: 1px solid var(--color-dark-300);
-  border-radius: 2px;
-  outline: none;
+  outline: 0;
 
-  transition:
-    200ms background-color,
-    200ms color,
-    200ms border-color;
+  transition: border-color 0.2s;
 
   &::placeholder {
     color: var(--color-dark-100);
   }
 
-  &:disabled {
-    color: var(--color-dark-300);
+  &:focus-visible {
+    border-color: var(--color-info-700);
+    outline: 1px solid var(--color-info-700);
   }
 
-  &:focus,
-  &:active:enabled {
+  &:hover {
+    background-color: var(--color-dark-700);
+  }
+
+  &:active {
     color: var(--color-light-100);
     border-color: var(--color-light-100);
   }
 
   &.error {
+    color: var(--color-danger-300);
     border-color: var(--color-danger-300);
-  }
-
-  &:hover:not(&:disabled) {
-    background-color: var(--color-dark-700);
-  }
-
-  &[data-icon*='start'] {
-    padding-left: 40px;
-  }
-
-  &[data-icon*='end'] {
-    padding-right: 36px;
   }
 }
 
-@mixin icon-end {
+.label {
+  margin-bottom: 1px;
+  color: var(--color-dark-100);
+}
+
+.showPassword {
   cursor: pointer;
 
   position: absolute;
   top: 50%;
-  right: 12px;
+  right: 0;
   bottom: 50%;
   transform: translateY(-50%);
 
-  display: flex;
-  align-items: center;
-
-  height: 100%;
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  padding: 0;
 
   background: transparent;
   border: 0;
   outline: 0;
-}
 
-.showPassword {
-  @include icon-end;
-
-  fill: var(--color-light-100);
-}
-
-.showClose {
-  @include icon-end;
-
-  fill: var(--color-light-100);
+  &:focus-visible {
+    outline: var(--outline-focus);
+  }
 }

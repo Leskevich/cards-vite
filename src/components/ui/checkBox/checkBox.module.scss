@@ -9,6 +9,7 @@
   align-items: center;
 
   &.disabled {
+    cursor: initial;
     color: var(--color-dark-100);
   }
 }
@@ -28,16 +29,20 @@
   border-radius: 2px;
 
   &:focus {
-    background-color: var(--color-light-100);
+    background-color: var(--color-dark-100);
   }
 
   &:disabled {
     cursor: initial;
-    border-color: var(--color-light-100);
+    border-color: var(--color-dark-100);
+  }
+
+  &:active:not(.disabled) {
+    background-color: var(--color-dark-900);
   }
 
   &[data-state='checked']:disabled {
-    background-color: var(--color-checkbox-disabled);
+    background-color: var(--color-light-700);
   }
 }
 
@@ -51,7 +56,7 @@
   width: 36px;
   height: 36px;
 
-  background-color: rgb(255 255 255 / 0%);
+  background-color: transparent;
   border-radius: 50%;
 
   &.disabled {
@@ -74,6 +79,6 @@
 }
 
 .indicator {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
 }
