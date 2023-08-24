@@ -1,10 +1,11 @@
 import { DevTool } from '@hookform/devtools'
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 import { z } from 'zod'
 
-import { Button, Card, ControlledTextField, Typography } from '../../ui'
-
 import s from './sing-up.module.scss'
+
+import { Button, Card, ControlledTextField, Typography } from '@/components/ui'
 
 const schema = z
   .object({
@@ -72,7 +73,7 @@ export const SingUp = (props: Props) => {
         <Typography variant={'body2'} className={s.caption}>
           Already have an account?
         </Typography>
-        <Typography variant={'link1'} as={'a'} className={s.singInLink}>
+        <Typography variant={'link1'} as={Link} to="/login" className={s.singInLink}>
           Sign In
         </Typography>
       </Card>

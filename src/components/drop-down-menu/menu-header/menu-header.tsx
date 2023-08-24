@@ -1,9 +1,8 @@
 import s from './menu-header.module.scss'
 
 import { Profile, SingOut } from '@/assets/icons'
-import { Typography } from '@/components/ui'
+import { Typography, Dropdown, DropdownItem, DropdownItemWithIcon } from '@/components/ui'
 import { Avatar } from '@/components/ui/avatar'
-import { Dropdown, DropdownItem, DropdownItemWithIcon } from '@/components/ui/drop-down'
 
 type Props = {
   name: string

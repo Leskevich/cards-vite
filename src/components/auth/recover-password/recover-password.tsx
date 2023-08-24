@@ -2,9 +2,9 @@ import { DevTool } from '@hookform/devtools'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import { Button, Card, ControlledTextField, Typography } from '../../ui'
-
 import s from './recover-password.module.scss'
+
+import { Button, Card, ControlledTextField, Typography } from '@/components/ui'
 
 const schema = z.object({
   email: z.string().email('Invalid email address').nonempty('Enter email'),
@@ -39,7 +39,7 @@ export const RecoverPassword = (props: Props) => {
           <Typography className={s.instructions} variant={'body2'}>
             Enter your email address and we will send you further instructions{' '}
           </Typography>
-          <Button className={s.button} typy={'submit'} fullWidth>
+          <Button className={s.button} fullWidth>
             Send Instructions
           </Button>
         </form>

@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import { Button, Card, ControlledTextField, Typography } from '../../ui'
-
 import s from './NewPassword.module.scss'
+
+import { Button, Card, ControlledTextField, Typography } from '@/components/ui'
 
 const schema = z.object({
   password: z.string().nonempty('Enter password'),

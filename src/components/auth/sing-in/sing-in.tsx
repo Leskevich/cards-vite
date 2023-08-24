@@ -1,11 +1,12 @@
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 import { z } from 'zod'
 
-import { Button, Card, ControlledCheckbox, ControlledTextField, Typography } from '../../ui'
-
 import s from './sing-in.module.scss'
+
+import { Button, Card, ControlledCheckbox, ControlledTextField, Typography } from '@/components/ui'
 
 const schema = z.object({
   email: z.string().email('Invalid email address').nonempty('Enter email'),
@@ -63,7 +64,12 @@ export const SignIn = (props: Props) => {
             control={control}
             name={'rememberMe'}
           />
-          <Typography variant="body2" as="a" href="/google" className={s.recoverPasswordLink}>
+          <Typography
+            variant="body2"
+            as={Link}
+            to="/recover-password"
+            className={s.recoverPasswordLink}
+          >
             Forgot Password?
           </Typography>
           <Button className={s.button} fullWidth type={'submit'}>
@@ -73,7 +79,7 @@ export const SignIn = (props: Props) => {
         <Typography className={s.caption} variant="body2">
           {`Don't have an account?`}
         </Typography>
-        <Typography variant="link1" as={'a'} className={s.signUpLink}>
+        <Typography variant="link1" as={Link} to={'/sign-up'} className={s.signUpLink}>
           Sign Up
         </Typography>
       </Card>

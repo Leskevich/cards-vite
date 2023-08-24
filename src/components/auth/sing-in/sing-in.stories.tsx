@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { SignIn } from './'
+import { SignIn } from '@/components/auth'
 
 const meta = {
   title: 'Auth/Sign in',
@@ -13,6 +13,6 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    onSubmit: data => console.info(data),
+    onSubmit: () => {},
   },
 }

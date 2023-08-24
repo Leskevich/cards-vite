@@ -2,8 +2,9 @@ import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/700.css'
 import type { Preview } from '@storybook/react'
 import '../src/styles/index.scss'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
-export const preview: Preview = {
+const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
@@ -14,3 +15,5 @@ export const preview: Preview = {
     },
   },
 }
+export const decorators = [withRouter]
+export default preview

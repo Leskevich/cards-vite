@@ -2,7 +2,7 @@ import { ChangeEvent, ComponentProps, ComponentPropsWithoutRef, forwardRef, useS
 
 import { clsx } from 'clsx'
 
-import s from './textField.module.scss'
+import s from './text-field.module.scss'
 
 import { EyeOff, Eye } from '@/assets/icons'
 import { Typography } from '@/components/ui/typography'
