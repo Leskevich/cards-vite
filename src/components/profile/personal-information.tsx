@@ -2,7 +2,7 @@ import { Button, Card, Typography } from '../ui'
 
 import s from './personal-information.module.scss'
 
-import { Change } from '@/assets/icons'
+import { ChangeIcon, LogoutIcon } from '@/assets/icons'
 import def from '@/assets/icons/defolt-ava.jpg'
 
 type Props = {
@@ -22,17 +22,18 @@ export const PersonalInformation = (props: Props) => {
       <div className={s.container}>
         <img className={s.ava} src={photo || def} alt="avatar" />
         <div className={s.wrapperIcon}>
-          <Change />
+          <ChangeIcon />
         </div>
       </div>
       <div className={s.containerName}>
         <Typography variant={'h1'}>Ivan</Typography>
-        <Change />
+        <ChangeIcon />
       </div>
       <Typography className={s.email} variant={'body2'}>
         {email}
       </Typography>
       <Button onClick={logOut} variant={'secondary'}>
+        <LogoutIcon />
         Logout
       </Button>
     </Card>

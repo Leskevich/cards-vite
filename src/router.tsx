@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 
 import { RecoverPassword, SignIn, SingUp } from '@/components/auth'
+import { PersonalInformation } from '@/components/profile'
 
 const publicRoutes: RouteObject[] = [
   {
@@ -26,7 +27,11 @@ const publicRoutes: RouteObject[] = [
 const privateRoutes: RouteObject[] = [
   {
     path: '/',
-    element: <div>hello</div>,
+    element: (
+      <div>
+        <PersonalInformation email={'sdcscds'} logOut={() => {}} />
+      </div>
+    ),
   },
 ]
 

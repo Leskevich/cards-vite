@@ -8,7 +8,7 @@ import { Typography } from '..'
 
 import s from './checkBox.module.scss'
 
-import { Check } from '@/assets/icons'
+import { CheckIcon } from '@/assets/icons'
 
 export type CheckboxProps = {
   className?: string
@@ -54,7 +54,7 @@ export const Checkbox: FC<CheckboxProps> = ({
             >
               {checked && (
                 <CheckboxRadix.Indicator className={classNames.indicator} forceMount>
-                  <Check />
+                  <CheckIcon />
                 </CheckboxRadix.Indicator>
               )}
             </CheckboxRadix.Root>
