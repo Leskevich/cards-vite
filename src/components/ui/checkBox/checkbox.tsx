@@ -4,10 +4,11 @@ import * as CheckboxRadix from '@radix-ui/react-checkbox'
 import * as LabelRadix from '@radix-ui/react-label'
 import { clsx } from 'clsx'
 
-import { Check } from '../../../assets/icons'
-import { Typography } from '../typography'
+import { Typography } from '..'
 
 import s from './checkBox.module.scss'
+
+import { Check } from '@/assets/icons'
 
 export type CheckboxProps = {
   className?: string
@@ -25,6 +26,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   onChange,
   position,
   disabled,
+  required,
   label,
   id,
   className,
@@ -40,18 +42,21 @@ export const Checkbox: FC<CheckboxProps> = ({
   return (
     <div className={classNames.container}>
       <LabelRadix.Root asChild>
-        <Typography variant={'body2'} as={'label'} className={classNames.label}>
+        <Typography variant="body2" className={classNames.label} as={'label'}>
           <div className={classNames.buttonWrapper}>
             <CheckboxRadix.Root
               className={classNames.root}
               checked={checked}
               onCheckedChange={onChange}
               disabled={disabled}
+              required={required}
               id={id}
             >
-              <CheckboxRadix.Indicator className={classNames.indicator}>
-                {checked && <Check />}
-              </CheckboxRadix.Indicator>
+              {checked && (
+                <CheckboxRadix.Indicator className={classNames.indicator} forceMount>
+                  <Check />
+                </CheckboxRadix.Indicator>
+              )}
             </CheckboxRadix.Root>
           </div>
           {label}

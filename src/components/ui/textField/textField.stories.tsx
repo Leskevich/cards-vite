@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { TextField } from './'
+import { TextField } from './TextField'
 
 const meta = {
   title: 'Components/TextField',
@@ -31,11 +31,5 @@ export const Error: Story = {
     label: 'Input with error',
     value: 'Wrong value',
     errorMessage: 'Error message',
-  },
-}
-export const Search: Story = {
-  args: {
-    label: 'Input with error',
-    type: 'search',
   },
 }
