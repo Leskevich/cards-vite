@@ -1,7 +1,13 @@
 import { useGetPackQuery } from './decksApi'
 
-import { Typography } from '@/components/ui'
-import { Table, TableHead, TableHeadCell } from '@/components/ui/table'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeadCell,
+  TableRow,
+} from '@/components/ui/table'
 
 export const Decks = () => {
   const { data, isLoading } = useGetPackQuery()
@@ -12,19 +18,25 @@ export const Decks = () => {
     <div>
       <Table>
         <TableHead>
-          <TableHeadCell>
-            <Typography variant={'subtitle2'}>Name</Typography>
-          </TableHeadCell>
-          <TableHeadCell>
-            <Typography variant={'subtitle2'}>Cards</Typography>
-          </TableHeadCell>
-          <TableHeadCell>
-            <Typography variant={'subtitle2'}>Last Updated</Typography>
-          </TableHeadCell>
-          <TableHeadCell>
-            <Typography variant={'subtitle2'}>Created by</Typography>
-          </TableHeadCell>
+          <TableRow>
+            <TableHeadCell>Name</TableHeadCell>
+            <TableHeadCell>Cards</TableHeadCell>
+            <TableHeadCell>Last Updated</TableHeadCell>
+            <TableHeadCell>Created by</TableHeadCell>
+          </TableRow>
         </TableHead>
+        <TableBody>
+          {data?.items.map(el => {
+            return (
+              <TableRow key={el.id}>
+                <TableCell>{el.name}</TableCell>
+                <TableCell>{el.cardsCount}</TableCell>
+                <TableCell>{el.updated}</TableCell>
+                <TableCell>{el.created}</TableCell>
+              </TableRow>
+            )
+          })}
+        </TableBody>
       </Table>
     </div>
   )
