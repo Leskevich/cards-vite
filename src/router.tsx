@@ -8,6 +8,7 @@ import {
 
 import { RecoverPassword, SignIn, SingUp } from '@/components/auth'
 import { PersonalInformation } from '@/components/profile'
+import { Decks } from '@/pages'
 
 const publicRoutes: RouteObject[] = [
   {
@@ -27,11 +28,11 @@ const publicRoutes: RouteObject[] = [
 const privateRoutes: RouteObject[] = [
   {
     path: '/',
-    element: (
-      <div>
-        <PersonalInformation email={'sdcscds'} logOut={() => {}} />
-      </div>
-    ),
+    element: <PersonalInformation email={'sdcscds'} logOut={() => {}} />,
+  },
+  {
+    path: '/decks',
+    element: <Decks />,
   },
 ]
 
