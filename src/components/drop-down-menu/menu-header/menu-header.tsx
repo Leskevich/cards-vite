@@ -1,9 +1,8 @@
 import s from './menu-header.module.scss'
 
-import { Profile, SingOut } from '@/assets/icons'
-import { Typography } from '@/components/ui'
+import { ProfileIcon, SingOutIcon } from '@/assets/icons'
+import { Typography, Dropdown, DropdownItem, DropdownItemWithIcon } from '@/components/ui'
 import { Avatar } from '@/components/ui/avatar'
-import { Dropdown, DropdownItem, DropdownItemWithIcon } from '@/components/ui/drop-down'
 
 type Props = {
   name: string
@@ -31,8 +30,8 @@ export const MenuHeader = (props: Props) => {
               <Typography variant={'caption'}>{email}</Typography>
             </div>
           </DropdownItem>
-          <DropdownItemWithIcon icon={<Profile />} text={'My Profile'} />
-          <DropdownItemWithIcon icon={<SingOut />} text={'Sign Out'} />
+          <DropdownItemWithIcon icon={<ProfileIcon />} text={'My Profile'} />
+          <DropdownItemWithIcon icon={<SingOutIcon />} text={'Sign Out'} />
         </>
       </Dropdown>
     </div>

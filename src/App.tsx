@@ -1,12 +1,12 @@
-import { Header } from './components/header'
+import { Provider } from 'react-redux'
 
-import { SignIn } from '@/components/auth'
+import { Router } from '@/router'
+import { store } from '@/services/store'
 
 export function App() {
   return (
-    <>
-      <Header isAuth={true} />
-      <SignIn onSubmit={s => console.log(s)} />
-    </>
+    <Provider store={store}>
+      <Router />
+    </Provider>
   )
 }

@@ -1,1 +1,1 @@
-export * from './TextField.tsx'
+export * from './text-field.tsx'

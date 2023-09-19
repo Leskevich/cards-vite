@@ -1,34 +1,19 @@
-import { forwardRef } from 'react'
+import { ComponentPropsWithoutRef, ElementType } from 'react'
 
 import { clsx } from 'clsx'
 
 import s from './button.module.scss'
 
-export interface ButtonProps<T extends React.ElementType = 'button'> {
+export type ButtonProps<T extends ElementType = 'button'> = {
   as?: T
-  children: React.ReactNode
   variant?: 'primary' | 'secondary' | 'tertiary' | 'link'
   fullWidth?: boolean
   className?: string
+} & ComponentPropsWithoutRef<T>
+
+export const Button = <T extends ElementType = 'button'>(props: ButtonProps<T>) => {
+  const { variant = 'primary', fullWidth, className, as: Component = 'button', ...rest } = props
+  const ck = clsx(s[variant], fullWidth ? s.fullWidth : '', className)
+
+  return <Component className={ck} {...rest} />
 }
-
-const Button = <T extends React.ElementType = 'button'>(
-  props: ButtonProps<T> & Omit<React.ComponentPropsWithoutRef<T>, keyof ButtonProps<T>>,
-  ref: React.ForwardedRef<any>
-) => {
-  const {
-    as: Component = 'button',
-    variant = 'primary',
-    fullWidth,
-    className,
-    ...otherProps
-  } = props
-
-  const classNames = {
-    root: clsx(className, s[variant], fullWidth && s.fullWidth),
-  }
-
-  return <Component ref={ref} className={classNames.root} {...otherProps} />
-}
-
-export default forwardRef(Button)

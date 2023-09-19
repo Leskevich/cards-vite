@@ -2,9 +2,9 @@ import { ChangeEvent, ComponentProps, ComponentPropsWithoutRef, forwardRef, useS
 
 import { clsx } from 'clsx'
 
-import s from './textField.module.scss'
+import s from './text-field.module.scss'
 
-import { EyeOff, Eye } from '@/assets/icons'
+import { EyeOffIcon, EyeIcon } from '@/assets/icons'
 import { Typography } from '@/components/ui/typography'
 
 export type TextFieldProps = {
@@ -72,7 +72,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
               type={'button'}
               onClick={() => setShowPassword(prev => !prev)}
             >
-              {showPassword ? <EyeOff /> : <Eye />}
+              {showPassword ? <EyeOffIcon /> : <EyeIcon />}
             </button>
           )}
         </div>
