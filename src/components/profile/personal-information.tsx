@@ -3,6 +3,7 @@ import { Button, Card, Typography } from '../ui'
 import s from './personal-information.module.scss'
 
 import { ChangeIcon, LogoutIcon } from '@/assets/icons'
+import Close from '@/assets/icons/Close.tsx'
 import def from '@/assets/icons/defolt-ava.jpg'
 
 type Props = {
@@ -36,6 +37,7 @@ export const PersonalInformation = (props: Props) => {
         <LogoutIcon />
         Logout
       </Button>
+      <Close />
     </Card>
   )
 }

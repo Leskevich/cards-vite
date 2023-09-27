@@ -2,18 +2,14 @@ import { baseApi } from '@/services/base-api.ts'
 
 const decksApi = baseApi.injectEndpoints({
   endpoints: builder => ({
-    getPack: builder.query<ResponseGetDecks, any>({
-      query: () => {
-        return { url: 'v1/decks', method: 'GET' }
+    getPack: builder.query<ResponseGetDecks, DecksParams>({
+      query: params => {
+        return { url: 'v1/decks', method: 'GET', params: params ?? {} }
       },
       providesTags: ['Decks'],
     }),
     createDeck: builder.mutation<any, { name: string }>({
-      query: ({ name }) => ({
-        url: 'v1/decks',
-        method: 'POST',
-        body: { name },
-      }),
+      query: ({ name }) => ({ url: 'v1/decks', method: 'POST', body: { name } }),
       invalidatesTags: ['Decks'],
     }),
   }),
@@ -27,12 +23,12 @@ export type Pagination = {
   totalItems: number
 }
 
-export type Author = {
+type Author = {
   id: string
   name: string
 }
 
-export type Items = {
+type Items = {
   id: string
   userId: string
   name: string
@@ -53,3 +49,12 @@ export type ResponseGetDecks = {
   pagination: Pagination
   items: Items[]
 }
+export type DecksParams = {
+  minCardsCount?: string
+  maxCardsCount?: string
+  name?: string
+  authorId?: string
+  orderBy?: string
+  currentPage?: number
+  itemsPerPage?: number
+} | void
