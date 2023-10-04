@@ -19,21 +19,16 @@ export const MenuHeader = (props: Props) => {
   )
 
   return (
-    <div className={s.container}>
-      <Typography variant={'subtitle1'}>name</Typography>
-      <Dropdown trigger={trigger}>
-        <>
-          <DropdownItem className={s.itemInformation}>
-            <Avatar src={srs} />
-            <div>
-              <Typography variant={'subtitle2'}>{name}</Typography>
-              <Typography variant={'caption'}>{email}</Typography>
-            </div>
-          </DropdownItem>
-          <DropdownItemWithIcon icon={<ProfileIcon />} text={'My Profile'} />
-          <DropdownItemWithIcon icon={<SingOutIcon />} text={'Sign Out'} />
-        </>
-      </Dropdown>
-    </div>
+    <Dropdown trigger={trigger}>
+      <DropdownItem className={s.itemInformation}>
+        <Avatar src={srs} />
+        <div>
+          <Typography variant={'subtitle2'}>{name}</Typography>
+          <Typography variant={'caption'}>{email}</Typography>
+        </div>
+      </DropdownItem>
+      <DropdownItemWithIcon icon={<ProfileIcon />} text={'My Profile'} />
+      <DropdownItemWithIcon icon={<SingOutIcon />} text={'Sign Out'} />
+    </Dropdown>
   )
 }
