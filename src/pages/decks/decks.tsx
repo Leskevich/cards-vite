@@ -1,8 +1,6 @@
 import { useGetPackQuery } from './decksApi'
 
 import { Delete, Edit, PlayCircle } from '@/assets/icons'
-import { MenuHeader } from '@/components/drop-down-menu/menu-header'
-import { Button, Dropdown, DropdownItemWithIcon } from '@/components/ui'
 import {
   Table,
   TableBody,
@@ -16,7 +14,6 @@ export const Decks = () => {
   const { data, isLoading } = useGetPackQuery()
 
   if (isLoading) return <>...loading</>
-  const trigger = <Button>open</Button>
 
   return (
     <div>
@@ -48,16 +45,6 @@ export const Decks = () => {
           })}
         </TableBody>
       </Table>
-      <div>
-        <MenuHeader name={'scds'} email={'scdsc'} />
-        <Dropdown align={'center'} trigger={trigger}>
-          <DropdownItemWithIcon icon={<Edit />} text="Изменить" onSelect={() => {}} />
-          <DropdownItemWithIcon icon={<Edit />} text="Удалить" onSelect={() => {}} />
-          <DropdownItemWithIcon icon={<Edit />} text="Удалить" onSelect={() => {}} />
-          <DropdownItemWithIcon icon={<Edit />} text="Удалить" onSelect={() => {}} />
-          <DropdownItemWithIcon icon={<Edit />} text="Удалить" onSelect={() => {}} />
-        </Dropdown>
-      </div>
     </div>
   )
 }
