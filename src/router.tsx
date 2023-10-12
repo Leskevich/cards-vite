@@ -6,8 +6,6 @@ import {
   createBrowserRouter,
 } from 'react-router-dom'
 
-import { SelectTest } from './pages/select-test'
-
 import { RecoverPassword, SignIn, SingUp } from '@/components/auth'
 import { PersonalInformation } from '@/components/profile'
 import { Decks } from '@/pages'
@@ -35,10 +33,6 @@ const privateRoutes: RouteObject[] = [
   {
     path: '/decks',
     element: <Decks />,
-  },
-  {
-    path: '/select',
-    element: <SelectTest />,
   },
 ]
 

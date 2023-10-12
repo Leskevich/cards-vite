@@ -1,45 +1,77 @@
-import * as Select from '@radix-ui/react-select'
-import clsx from 'clsx'
+import { ReactNode } from 'react'
+
+import * as Label from '@radix-ui/react-label'
+import * as SelectRadixUI from '@radix-ui/react-select'
 
 import s from './select.module.scss'
 
 import { KeyboardArrowDown } from '@/assets/icons'
+import { Typography } from '@/components/ui'
 
-type SelectProps = {
-  className?: string
-  placeholder?: string
-  variant?: 'primary' | 'pagination'
-  options: string[]
+export type Options = {
   value: string
-} & Select.SelectProps
-
-export const SelectRadix = ({
-  placeholder,
+  disabled?: boolean
+}
+type SelectProps = {
+  defaultValue?: string
+  value?: string
+  placeholder?: ReactNode
+  selectOptions: Options[]
+  onValueChange?: (value: string) => void
+  disabled?: boolean
+  label?: string
+  className?: string
+}
+export const Select = ({
+  defaultValue,
   value,
-  className,
-  options,
-  variant = 'primary',
+  placeholder,
+  selectOptions,
   onValueChange,
+  disabled,
+  label,
+  className,
 }: SelectProps) => {
   return (
-    <Select.Root onValueChange={onValueChange}>
-      <Select.Trigger className={clsx(s.trigger, s[variant], className)}>
-        <Select.Value placeholder={placeholder}>{value}</Select.Value>
-        <Select.Icon className={clsx(s.icon, s[variant])}>
-          <KeyboardArrowDown size={variant === 'pagination' ? 16 : 24} />
-        </Select.Icon>
-      </Select.Trigger>
-      <Select.Portal>
-        <Select.Content position={'popper'} className={s.content}>
-          <Select.Viewport>
-            {options.map((i, index) => (
-              <Select.Item key={index} value={i}>
-                {i}
-              </Select.Item>
-            ))}
-          </Select.Viewport>
-        </Select.Content>
-      </Select.Portal>
-    </Select.Root>
+    <Label.Root>
+      <Typography
+        variant={'body2'}
+        as={'label'}
+        className={`${s.label} ${disabled && s.labelDisabled}`}
+      >
+        {label}
+      </Typography>
+      <SelectRadixUI.Root
+        defaultValue={defaultValue}
+        value={value}
+        required
+        disabled={disabled}
+        onValueChange={onValueChange}
+      >
+        <SelectRadixUI.Trigger className={`${s.trigger} ${className}`} tabIndex={1}>
+          <SelectRadixUI.Value placeholder={placeholder} />
+          <KeyboardArrowDown className={s.icon} />
+        </SelectRadixUI.Trigger>
+
+        <SelectRadixUI.Portal>
+          <SelectRadixUI.Content position={'popper'} className={s.content}>
+            <SelectRadixUI.Viewport>
+              {selectOptions.map(option => {
+                return (
+                  <SelectRadixUI.Item
+                    key={option.value}
+                    className={s.item}
+                    value={option.value}
+                    disabled={option.disabled}
+                  >
+                    <SelectRadixUI.ItemText>{option.value}</SelectRadixUI.ItemText>
+                  </SelectRadixUI.Item>
+                )
+              })}
+            </SelectRadixUI.Viewport>
+          </SelectRadixUI.Content>
+        </SelectRadixUI.Portal>
+      </SelectRadixUI.Root>
+    </Label.Root>
   )
 }
