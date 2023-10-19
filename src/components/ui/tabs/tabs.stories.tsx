@@ -13,7 +13,7 @@ export default {
       { value: 'Switcher4', title: 'Switcher4' },
       { value: 'Switcher5', title: 'Switcher5' },
     ],
-    defaultValue: 'sprints',
+    defaultValue: 'Switcher1',
     children: (
       <>
         <TabContent value="Switcher1">Switcher1</TabContent>
