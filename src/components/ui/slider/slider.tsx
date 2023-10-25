@@ -3,6 +3,8 @@ import { FC, useState } from 'react'
 import * as SliderRadix from '@radix-ui/react-slider'
 import { clsx } from 'clsx'
 
+import s from './slider.module.scss'
+
 import { Typography } from '@/components/ui'
 
 export type SliderPropsType = {
