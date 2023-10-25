@@ -56,8 +56,6 @@ export const Pagination: FC<PaginationProps> = ({
     siblings,
   })
 
-  debugger
-
   return (
     <div className={classNames.root}>
       <div className={classNames.container}>
