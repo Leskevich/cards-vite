@@ -1,10 +1,12 @@
 import {
+  createBrowserRouter,
   Navigate,
   Outlet,
   RouteObject,
   RouterProvider,
-  createBrowserRouter,
 } from 'react-router-dom'
+
+import { Pagi } from './components/Pagi'
 
 import { RecoverPassword, SignIn, SingUp } from '@/components/auth'
 import { PersonalInformation } from '@/components/profile'
@@ -33,6 +35,10 @@ const privateRoutes: RouteObject[] = [
   {
     path: '/decks',
     element: <Decks />,
+  },
+  {
+    path: '/pagi',
+    element: <Pagi />,
   },
 ]
 
