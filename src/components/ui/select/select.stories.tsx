@@ -15,12 +15,16 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const options = [{ value: 'Select-box 1' }, { value: 'Select-box 2' }, { value: 'Select-box 3' }]
+const options = [
+  { value: 'Select-box 1', label: 'box1' },
+  { value: 'Select-box 2', label: 'box2' },
+  { value: 'Select-box 3', label: 'box3' },
+]
 
 export const SelectStory: Story = {
   args: {
     label: 'Select-box',
-    defaultValue: 'Select-box 1',
+    defaultValue: 'box1',
     placeholder: 'Select-box 1',
     selectOptions: options,
   },
@@ -28,12 +32,11 @@ export const SelectStory: Story = {
 
 export const SelectStoryWithDisabledItem: Story = {
   args: {
-    defaultValue: 'Select-box 1',
-    placeholder: 'Select-box 1',
+    placeholder: 'Выбери бокс',
     selectOptions: [
-      { value: 'Select-box 1' },
-      { value: 'Select-box 2', disabled: true },
-      { value: 'Select-box 3' },
+      { value: 'Select-box 1', label: 'box1' },
+      { value: 'Select-box 2', label: 'box2', disabled: true },
+      { value: 'Select-box 3', label: 'box3' },
     ],
   },
 }
@@ -44,6 +47,13 @@ export const SelectStoryDisabled: Story = {
     defaultValue: 'Select-box 1',
     placeholder: 'Select-box 1',
     disabled: true,
+    selectOptions: options,
+  },
+}
+export const SelectStoryDefaultValue: Story = {
+  args: {
+    label: 'Select-box',
+    defaultValue: 'box1',
     selectOptions: options,
   },
 }
