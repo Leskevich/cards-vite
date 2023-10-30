@@ -1,15 +1,10 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-import { PrivateLayout } from './layout'
-import { publicRoutes } from './routes'
-import { privateRoutes } from './routes/privatRoutes'
+import { PrivateLayout, privateRoutes, PublicLayout, publicRoutes } from '.'
 
 const router = createBrowserRouter([
-  {
-    element: <PrivateLayout />,
-    children: privateRoutes,
-  },
-  ...publicRoutes,
+  { element: <PrivateLayout />, children: privateRoutes },
+  { element: <PublicLayout />, children: publicRoutes },
 ])
 
 export const Router = () => {
