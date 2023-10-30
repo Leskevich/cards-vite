@@ -13,12 +13,12 @@ const schema = z.object({
 type FormType = z.infer<typeof schema>
 
 type Props = {
-  onSubmit: (data: FormType) => void
+  onSubmit?: (data: FormType) => void
 }
 
-export const RecoverPassword = (props: Props) => {
+export const ForgotPasswordForm = (props: Props) => {
   const { control, handleSubmit } = useForm<FormType>()
-  const handleFormSubmitted = handleSubmit(props.onSubmit)
+  const handleFormSubmitted = handleSubmit(props.onSubmit!)
 
   return (
     <>

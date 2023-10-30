@@ -28,10 +28,10 @@ const schema = z
 type FormType = z.infer<typeof schema>
 
 type Props = {
-  onSubmit: (data: FormType) => void
+  onSubmit?: (data: FormType) => void
 }
 
-export const SingUp = (props: Props) => {
+export const SingUpForm = (props: Props) => {
   const { handleSubmit, control } = useForm<FormType>()
   const handleFormSubmitted = handleSubmit(props.onSubmit!)
 
