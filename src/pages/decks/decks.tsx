@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/table'
 
 export const Decks = () => {
-  const { data, isLoading } = useGetPackQuery()
+  const { data, isLoading } = useGetPackQuery({ name: 'asasac' })
 
   if (isLoading) return <>...loading</>
 

@@ -6,6 +6,7 @@ import { z } from 'zod'
 import s from './sing-in.module.scss'
 
 import { Button, Card, ControlledCheckbox, ControlledTextField, Typography } from '@/components/ui'
+import { routes } from '@/routes'
 
 const schema = z.object({
   email: z.string().email('Invalid email address').nonempty('Enter email'),
@@ -64,7 +65,7 @@ export const SignInForm = (props: Props) => {
         <Typography
           variant="body2"
           as={Link}
-          to="/recover-password"
+          to={routes.AUTH.FORGOT_PASSWORD}
           className={s.recoverPasswordLink}
         >
           Forgot Password?
@@ -76,7 +77,7 @@ export const SignInForm = (props: Props) => {
       <Typography className={s.caption} variant="body2">
         {`Don't have an account?`}
       </Typography>
-      <Typography variant="link1" as={Link} to={'/sign-up'} className={s.signUpLink}>
+      <Typography variant="link1" as={Link} to={routes.AUTH.SIGN_UP} className={s.signUpLink}>
         Sign Up
       </Typography>
     </Card>
