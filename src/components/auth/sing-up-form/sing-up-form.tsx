@@ -6,6 +6,7 @@ import { z } from 'zod'
 import s from './sing-up.module.scss'
 
 import { Button, Card, ControlledTextField, Typography } from '@/components/ui'
+import { routes } from '@/routes'
 
 const schema = z
   .object({
@@ -73,7 +74,7 @@ export const SingUpForm = (props: Props) => {
         <Typography variant={'body2'} className={s.caption}>
           Already have an account?
         </Typography>
-        <Typography variant={'link1'} as={Link} to="/login" className={s.singInLink}>
+        <Typography variant={'link1'} as={Link} to={routes.AUTH.SING_IN} className={s.singInLink}>
           Sign In
         </Typography>
       </Card>
