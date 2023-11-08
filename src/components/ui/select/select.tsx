@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 
 import * as Label from '@radix-ui/react-label'
 import * as SelectRadixUI from '@radix-ui/react-select'
+import { clsx } from 'clsx'
 
 import s from './select.module.scss'
 
@@ -10,9 +11,11 @@ import { Typography } from '@/components/ui'
 
 export type Options = {
   value: string
+  label: string
   disabled?: boolean
 }
 type SelectProps = {
+  variant?: 'default' | 'pagination'
   defaultValue?: string
   value?: string
   placeholder?: ReactNode
@@ -22,16 +25,19 @@ type SelectProps = {
   label?: string
   className?: string
 }
-export const Select = ({
-  defaultValue,
-  value,
-  placeholder,
-  selectOptions,
-  onValueChange,
-  disabled,
-  label,
-  className,
-}: SelectProps) => {
+export const Select = (props: SelectProps) => {
+  const {
+    variant = 'DEFAULT',
+    defaultValue,
+    value,
+    placeholder,
+    selectOptions,
+    onValueChange,
+    disabled,
+    label,
+    className,
+  } = props
+
   return (
     <Label.Root>
       <Typography
@@ -48,7 +54,7 @@ export const Select = ({
         disabled={disabled}
         onValueChange={onValueChange}
       >
-        <SelectRadixUI.Trigger className={`${s.trigger} ${className}`} tabIndex={1}>
+        <SelectRadixUI.Trigger className={clsx(s.trigger, className, s[variant])}>
           <SelectRadixUI.Value placeholder={placeholder} />
           <KeyboardArrowDown className={s.icon} />
         </SelectRadixUI.Trigger>
@@ -61,7 +67,7 @@ export const Select = ({
                   <SelectRadixUI.Item
                     key={option.value}
                     className={s.item}
-                    value={option.value}
+                    value={option.label}
                     disabled={option.disabled}
                   >
                     <SelectRadixUI.ItemText>{option.value}</SelectRadixUI.ItemText>
