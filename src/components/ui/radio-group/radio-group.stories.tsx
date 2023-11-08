@@ -7,7 +7,7 @@ const meta = {
   component: RadioGroup,
   tags: ['autodocs'],
   argTypes: {
-    items: [],
+    options: [],
     onChange: { action: 'value changed to' },
   },
 } satisfies Meta<typeof RadioGroup>
@@ -24,21 +24,21 @@ const data = [
 
 export const NotSelectedValue: Story = {
   args: {
-    items: data,
+    options: data,
     value: '',
   },
 }
 
 export const SelectedValue: Story = {
   args: {
-    items: data,
+    options: data,
     value: 'redux',
   },
 }
 
 export const WithErrorMessage: Story = {
   args: {
-    items: data,
+    options: data,
     value: '',
     errorMessage: 'Some error message example',
   },
