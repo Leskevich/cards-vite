@@ -1,4 +1,4 @@
-import { baseApi } from '@/services/base-api.ts'
+import { baseApi } from '@/shared/api'
 
 const decksApi = baseApi.injectEndpoints({
   endpoints: builder => ({

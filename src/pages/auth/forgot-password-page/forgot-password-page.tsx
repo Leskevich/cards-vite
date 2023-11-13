@@ -1,5 +1,5 @@
-import { ForgotPasswordForm } from '@/components/auth'
+import { RecoverPasswordForm } from '@/features/auth'
 
 export const ForgotPasswordPage = () => {
-  return <ForgotPasswordForm />
+  return <RecoverPasswordForm />
 }

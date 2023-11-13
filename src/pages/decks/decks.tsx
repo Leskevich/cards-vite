@@ -1,14 +1,7 @@
 import { useGetPackQuery } from './decksApi'
 
-import { Delete, Edit, PlayCircle } from '@/assets/icons'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeadCell,
-  TableRow,
-} from '@/components/ui/table'
+import { Delete, Edit, PlayCircle } from '@/shared/assets'
+import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from '@/shared/ui'
 
 export const Decks = () => {
   const { data, isLoading } = useGetPackQuery({ name: 'asasac' })

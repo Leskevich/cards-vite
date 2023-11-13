@@ -1,7 +1,7 @@
 import s from './check-email.module.scss'
 
-import { CheckEmail } from '@/assets/icons'
-import { Button, Card, Typography } from '@/components/ui'
+import { CheckEmail } from '@/shared/assets'
+import { Button, Card, Typography } from '@/shared/ui'
 
 export const CheckEmailPage = () => {
   return (
