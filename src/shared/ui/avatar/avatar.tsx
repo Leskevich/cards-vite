@@ -9,7 +9,6 @@ export type AvatarProps = {
   src?: ComponentProps<'img'>['src']
   size?: ComponentProps<'img'>['width']
 }
-
 export const Avatar = ({ name, src, size = 36 }: AvatarProps) => {
   return (
     <img

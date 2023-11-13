@@ -6,7 +6,7 @@ import { clsx } from 'clsx'
 
 import s from './select.module.scss'
 
-import { KeyboardArrowDown } from '@/shared/assets'
+import { ArrowDownIcon } from '@/shared/assets'
 import { Typography } from '@/shared/ui'
 
 export type Options = {
@@ -56,7 +56,7 @@ export const Select = (props: SelectProps) => {
       >
         <SelectRadixUI.Trigger className={clsx(s.trigger, className, s[variant])}>
           <SelectRadixUI.Value placeholder={placeholder} />
-          <KeyboardArrowDown className={s.icon} />
+          <ArrowDownIcon className={s.icon} />
         </SelectRadixUI.Trigger>
 
         <SelectRadixUI.Portal>

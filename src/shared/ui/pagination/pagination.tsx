@@ -4,8 +4,7 @@ import { clsx } from 'clsx'
 
 import s from './pagination.module.scss'
 
-import { ArrowBack } from '@/shared/assets/icons/arrow-back.tsx'
-import { ArrowNext } from '@/shared/assets/icons/arrow-next.tsx'
+import { ArrowNextIcon, ArrowBackIcon } from '@/shared/assets'
 import { Select, Typography, usePagination } from '@/shared/ui'
 
 export type PaginationProps = {
@@ -106,7 +105,7 @@ const PageButton: FC<PageButtonProps> = ({ onClick, disabled, selected, page }) 
 const PrevButton: FC<NavigationButtonProps> = ({ onClick, disabled }) => {
   return (
     <button className={classNames.item} onClick={onClick} disabled={disabled}>
-      <ArrowNext className={classNames.icon} size={16} />
+      <ArrowNextIcon className={classNames.icon} size={16} />
     </button>
   )
 }
@@ -114,7 +113,7 @@ const PrevButton: FC<NavigationButtonProps> = ({ onClick, disabled }) => {
 const NextButton: FC<NavigationButtonProps> = ({ onClick, disabled }) => {
   return (
     <button className={classNames.item} onClick={onClick} disabled={disabled}>
-      <ArrowBack className={classNames.icon} size={16} />
+      <ArrowBackIcon className={classNames.icon} size={16} />
     </button>
   )
 }

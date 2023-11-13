@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Edit } from '@/shared/assets'
+import { EditIcon } from '@/shared/assets'
 import { Button, Dropdown, DropdownItemWithIcon } from '@/shared/ui'
 
 const meta = {
@@ -15,11 +15,11 @@ export const Default: Story = {
   args: {
     children: (
       <>
-        <DropdownItemWithIcon icon={<Edit />} text="Изменить" onSelect={() => {}} />
-        <DropdownItemWithIcon icon={<Edit />} text="Удалить" onSelect={() => {}} />
-        <DropdownItemWithIcon icon={<Edit />} text="Удалить" onSelect={() => {}} />
-        <DropdownItemWithIcon icon={<Edit />} text="Удалить" onSelect={() => {}} />
-        <DropdownItemWithIcon icon={<Edit />} text="Удалить" onSelect={() => {}} />
+        <DropdownItemWithIcon icon={<EditIcon />} text="Изменить" onSelect={() => {}} />
+        <DropdownItemWithIcon icon={<EditIcon />} text="Удалить" onSelect={() => {}} />
+        <DropdownItemWithIcon icon={<EditIcon />} text="Удалить" onSelect={() => {}} />
+        <DropdownItemWithIcon icon={<EditIcon />} text="Удалить" onSelect={() => {}} />
+        <DropdownItemWithIcon icon={<EditIcon />} text="Удалить" onSelect={() => {}} />
       </>
     ),
     trigger: <Button>open</Button>,

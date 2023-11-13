@@ -1,6 +1,6 @@
-import { IconProps, IconWrapper } from 'src/assets/icons/icon-wrapper.tsx'
+import { IconProps, IconWrapper } from '@/shared/assets/icons/icon-wrapper.tsx'
 
-export const ArrowBack = (allProps: IconProps) => {
+const ArrowBackIcon = (allProps: IconProps) => {
   const { svgProps: props, ...restProps } = allProps
 
   return (
@@ -23,3 +23,5 @@ export const ArrowBack = (allProps: IconProps) => {
     />
   )
 }
+
+export default ArrowBackIcon

@@ -1,6 +1,6 @@
 import s from './check-email.module.scss'
 
-import { CheckEmail } from '@/shared/assets'
+import { CheckEmailIcon } from '@/shared/assets'
 import { Button, Card, Typography } from '@/shared/ui'
 
 export const CheckEmailPage = () => {
@@ -9,7 +9,7 @@ export const CheckEmailPage = () => {
       <Typography className={s.title} variant={'large'}>
         Check Email
       </Typography>
-      <CheckEmail className={s.icon} />
+      <CheckEmailIcon className={s.icon} />
       <Typography className={s.text} variant={'body2'}>
         We’ve sent an Email with instructions
         <br /> to example@mail.com

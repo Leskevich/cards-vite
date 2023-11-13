@@ -1,6 +1,6 @@
-import { IconProps, IconWrapper } from 'src/assets/icons/icon-wrapper.tsx'
+import { IconProps, IconWrapper } from '@/shared/assets/icons/icon-wrapper.tsx'
 
-export const ArrowNext = (allProps: IconProps) => {
+const ArrowNextIcon = (allProps: IconProps) => {
   const { svgProps: props, ...restProps } = allProps
 
   return (
@@ -23,3 +23,5 @@ export const ArrowNext = (allProps: IconProps) => {
     />
   )
 }
+
+export default ArrowNextIcon
