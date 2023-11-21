@@ -5,25 +5,20 @@ import { z } from 'zod'
 
 import s from './sing-in.module.scss'
 
+import { signInSchema } from '@/features/auth/lib'
 import { routes } from '@/shared/const'
 import { Button, Card, ControlledCheckbox, ControlledTextField, Typography } from '@/shared/ui'
 
-const schema = z.object({
-  email: z.string().email('Invalid email address').nonempty('Enter email'),
-  password: z.string().nonempty('Enter password'),
-  rememberMe: z.boolean().optional(),
-})
-
-type FormType = z.infer<typeof schema>
+type FormType = z.infer<typeof signInSchema>
 
 type Props = {
-  onSubmit?: (data: FormType) => void
+  onSubmit: (data: FormType) => void
 }
 
 export const SignInForm = (props: Props) => {
   const { control, handleSubmit } = useForm<FormType>({
     mode: 'onSubmit',
-    resolver: zodResolver(schema),
+    resolver: zodResolver(signInSchema),
     defaultValues: {
       email: '',
       password: '',
@@ -31,7 +26,7 @@ export const SignInForm = (props: Props) => {
     },
   })
 
-  const handleFormSubmitted = handleSubmit(props.onSubmit!)
+  const handleFormSubmitted = handleSubmit(props.onSubmit)
 
   return (
     <Card className={s.card}>

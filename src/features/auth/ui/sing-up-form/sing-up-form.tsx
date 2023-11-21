@@ -5,28 +5,11 @@ import { z } from 'zod'
 
 import s from './sing-up.module.scss'
 
+import { signUpSchema } from '@/features/auth/lib'
 import { routes } from '@/shared/const'
 import { Button, Card, ControlledTextField, Typography } from '@/shared/ui'
 
-const schema = z
-  .object({
-    email: z.string().email('Invalid email address').nonempty('Enter email'),
-    password: z.string().nonempty('Enter password'),
-    passwordConfirmation: z.string().nonempty('Confirm your password'),
-  })
-  .superRefine((data, ctx) => {
-    if (data.password !== data.passwordConfirmation) {
-      ctx.addIssue({
-        message: 'Passwords do not match',
-        code: z.ZodIssueCode.custom,
-        path: ['passwordConfirmation'],
-      })
-    }
-
-    return data
-  })
-
-type FormType = z.infer<typeof schema>
+type FormType = z.infer<typeof signUpSchema>
 
 type Props = {
   onSubmit?: (data: FormType) => void

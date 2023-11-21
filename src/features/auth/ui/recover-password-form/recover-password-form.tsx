@@ -4,13 +4,10 @@ import { z } from 'zod'
 
 import s from './recover-password.module.scss'
 
+import { recoverPasswordSchema } from '@/features/auth/lib'
 import { Button, Card, ControlledTextField, Typography } from '@/shared/ui'
 
-const schema = z.object({
-  email: z.string().email('Invalid email address').nonempty('Enter email'),
-})
-
-type FormType = z.infer<typeof schema>
+type FormType = z.infer<typeof recoverPasswordSchema>
 
 type Props = {
   onSubmit?: (data: FormType) => void

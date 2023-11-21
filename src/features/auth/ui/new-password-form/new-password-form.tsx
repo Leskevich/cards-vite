@@ -3,13 +3,10 @@ import { z } from 'zod'
 
 import s from './new-password.module.scss'
 
+import { newPasswordSchema } from '@/features/auth/lib'
 import { Button, Card, ControlledTextField, Typography } from '@/shared/ui'
 
-const schema = z.object({
-  password: z.string().nonempty('Enter password'),
-})
-
-type FormType = z.infer<typeof schema>
+type FormType = z.infer<typeof newPasswordSchema>
 type Props = {
   onSubmit?: (data: FormType) => void
 }

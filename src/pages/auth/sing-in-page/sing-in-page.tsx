@@ -1,5 +1,7 @@
-import { SignInForm } from '@/features/auth'
+import { SignInForm, useAuth } from '@/features/auth'
 
 export const SingInPage = () => {
-  return <SignInForm />
+  const { signInHandleSubmit } = useAuth()
+
+  return <SignInForm onSubmit={signInHandleSubmit} />
 }
