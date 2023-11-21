@@ -9,14 +9,14 @@ import { signInSchema } from '@/features/auth/lib'
 import { routes } from '@/shared/const'
 import { Button, Card, ControlledCheckbox, ControlledTextField, Typography } from '@/shared/ui'
 
-type FormType = z.infer<typeof signInSchema>
+export type SignInFormType = z.infer<typeof signInSchema>
 
 type Props = {
-  onSubmit: (data: FormType) => void
+  onSubmit: (data: SignInFormType) => void
 }
 
 export const SignInForm = (props: Props) => {
-  const { control, handleSubmit } = useForm<FormType>({
+  const { control, handleSubmit } = useForm<SignInFormType>({
     mode: 'onSubmit',
     resolver: zodResolver(signInSchema),
     defaultValues: {

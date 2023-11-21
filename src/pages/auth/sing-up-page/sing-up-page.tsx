@@ -1,5 +1,12 @@
-import { SingUpForm } from '@/features/auth'
+import { SingUpForm, SignUpFormType } from '@/features/auth'
+import { useSignUpMutation } from '@/shared/services'
 
 export const SingUpPage = () => {
-  return <SingUpForm />
+  const [signUp] = useSignUpMutation()
+
+  const signUpSubmitHandler = (data: SignUpFormType) => {
+    signUp({ email: data.email, password: data.password })
+  }
+
+  return <SingUpForm onSubmit={signUpSubmitHandler} />
 }

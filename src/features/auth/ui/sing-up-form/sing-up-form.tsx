@@ -9,15 +9,15 @@ import { signUpSchema } from '@/features/auth/lib'
 import { routes } from '@/shared/const'
 import { Button, Card, ControlledTextField, Typography } from '@/shared/ui'
 
-type FormType = z.infer<typeof signUpSchema>
+export type SignUpFormType = z.infer<typeof signUpSchema>
 
 type Props = {
-  onSubmit?: (data: FormType) => void
+  onSubmit: (data: SignUpFormType) => void
 }
 
 export const SingUpForm = (props: Props) => {
-  const { handleSubmit, control } = useForm<FormType>()
-  const handleFormSubmitted = handleSubmit(props.onSubmit!)
+  const { handleSubmit, control } = useForm<SignUpFormType>()
+  const handleFormSubmitted = handleSubmit(props.onSubmit)
 
   return (
     <>
