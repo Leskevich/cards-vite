@@ -31,11 +31,12 @@ export const authApi = baseApi.injectEndpoints({
         body: { password },
       }),
     }),
-    logout: builder.mutation<unknown, void>({
+    logout: builder.mutation<void, void>({
       query: () => ({
-        url: `auth/logout`,
+        url: `/v1/auth/logout`,
         method: 'POST',
       }),
+      invalidatesTags: ['AuthMe'],
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         const patchResult = dispatch(
           authApi.util.updateQueryData('authMe', undefined, () => {
