@@ -1,1 +1,1 @@
-export { CommonLayout } from 'src/app/routes/layouts/common-layout/common-layout.tsx'
+export { CommonLayout } from './common-layout.tsx'
