@@ -3,7 +3,7 @@ import { useGetDecksQuery } from '@/shared/services/decks-api'
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from '@/shared/ui'
 
 export const Decks = () => {
-  const { data, isLoading } = useGetDecksQuery({ name: 'asasac' })
+  const { data, isLoading } = useGetDecksQuery()
 
   if (isLoading) return <>...loading</>
 
