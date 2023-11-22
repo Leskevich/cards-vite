@@ -1,1 +1,1 @@
-export { SingInPages } from './sing-in-pages.tsx'
+export { SingInPage } from './sing-in-page.tsx'

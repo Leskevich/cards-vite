@@ -1,17 +1,9 @@
-import { useGetPackQuery } from './decksApi'
-
-import { Delete, Edit, PlayCircle } from '@/assets/icons'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeadCell,
-  TableRow,
-} from '@/components/ui/table'
+import { DeleteIcon, EditIcon, PlayCircleIcon } from '@/shared/assets'
+import { useGetDecksQuery } from '@/shared/services/decks-api'
+import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from '@/shared/ui'
 
 export const Decks = () => {
-  const { data, isLoading } = useGetPackQuery({ name: 'asasac' })
+  const { data, isLoading } = useGetDecksQuery({ name: 'asasac' })
 
   if (isLoading) return <>...loading</>
 
@@ -36,9 +28,9 @@ export const Decks = () => {
                 <TableCell>{el.updated}</TableCell>
                 <TableCell>{el.created}</TableCell>
                 <TableCell>
-                  <PlayCircle />
-                  <Edit />
-                  <Delete />
+                  <PlayCircleIcon />
+                  <EditIcon />
+                  <DeleteIcon />
                 </TableCell>
               </TableRow>
             )
