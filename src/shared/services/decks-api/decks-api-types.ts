@@ -1,21 +1,3 @@
-import { baseApi } from '@/shared/api'
-
-const decksApi = baseApi.injectEndpoints({
-  endpoints: builder => ({
-    getPack: builder.query<ResponseGetDecks, DecksParams>({
-      query: params => {
-        return { url: 'v1/decks', method: 'GET', params: params ?? {} }
-      },
-      providesTags: ['Decks'],
-    }),
-    createDeck: builder.mutation<any, { name: string }>({
-      query: ({ name }) => ({ url: 'v1/decks', method: 'POST', body: { name } }),
-      invalidatesTags: ['Decks'],
-    }),
-  }),
-})
-
-export const { useGetPackQuery, useCreateDeckMutation } = decksApi
 export type Pagination = {
   totalPages: number
   currentPage: number

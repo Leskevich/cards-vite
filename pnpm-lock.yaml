@@ -64,7 +64,7 @@ dependencies:
     version: 6.15.0(react-dom@18.2.0)(react@18.2.0)
   storybook-addon-react-router-v6:
     specifier: ^2.0.7
-    version: 2.0.7(@storybook/blocks@7.1.1)(@storybook/channels@7.3.2)(@storybook/components@7.1.1)(@storybook/core-events@7.3.2)(@storybook/manager-api@7.3.2)(@storybook/preview-api@7.1.1)(@storybook/theming@7.3.2)(react-dom@18.2.0)(react-router-dom@6.15.0)(react@18.2.0)
+    version: 2.0.7(@storybook/blocks@7.1.1)(@storybook/channels@7.3.2)(@storybook/components@7.1.1)(@storybook/core-events@7.3.2)(@storybook/manager-base-api@7.3.2)(@storybook/preview-base-api@7.1.1)(@storybook/theming@7.3.2)(react-dom@18.2.0)(react-router-dom@6.15.0)(react@18.2.0)
   zod:
     specifier: ^3.21.4
     version: 3.21.4

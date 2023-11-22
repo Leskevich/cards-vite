@@ -1,10 +1,9 @@
-import { useGetPackQuery } from './decksApi'
-
 import { DeleteIcon, EditIcon, PlayCircleIcon } from '@/shared/assets'
+import { useGetDecksQuery } from '@/shared/services/decks-api'
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from '@/shared/ui'
 
 export const Decks = () => {
-  const { data, isLoading } = useGetPackQuery({ name: 'asasac' })
+  const { data, isLoading } = useGetDecksQuery({ name: 'asasac' })
 
   if (isLoading) return <>...loading</>
 

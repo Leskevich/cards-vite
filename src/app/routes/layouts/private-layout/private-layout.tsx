@@ -1,7 +1,11 @@
 import { Navigate, Outlet } from 'react-router-dom'
 
-export const PrivateLayout = () => {
-  const isAuthenticated = false
+import { useAuthMeQuery } from '@/shared/services'
 
-  return isAuthenticated ? <Outlet /> : <Navigate to="/login" />
+export const PrivateLayout = () => {
+  const { data, isLoading } = useAuthMeQuery()
+
+  if (isLoading) return <div>Loading...</div>
+
+  return data ? <Outlet /> : <Navigate to="/login" />
 }
