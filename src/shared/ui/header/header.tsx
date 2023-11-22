@@ -1,21 +1,20 @@
 import s from './header.module.scss'
 
 import { LogoIncubatorIcon } from '@/shared/assets'
+import { useAuthMeQuery } from '@/shared/services'
 import { Button } from '@/shared/ui/button'
 import { MenuHeader } from '@/shared/ui/menu-header'
 
-type Props = {
-  isAuth: boolean
-}
+export const Header = () => {
+  const { data, isLoading } = useAuthMeQuery()
 
-export const Header = (props: Props) => {
-  const { isAuth } = props
+  if (isLoading) return null
 
   return (
     <header className={s.header}>
       <LogoIncubatorIcon />
-      {isAuth && <MenuHeader email={'Leskevich@gmail.com'} name={'artem'} />}
-      {!isAuth && <Button variant={'primary'}>Sign In</Button>}
+      {data && <MenuHeader email={'Leskevich@gmail.com'} name={'artem'} />}
+      {!data && <Button variant={'primary'}>Sign In</Button>}
     </header>
   )
 }
