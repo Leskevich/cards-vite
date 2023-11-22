@@ -1,26 +1,14 @@
-import { useEffect } from 'react'
-
-import { useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 import { SignInForm } from '@/features/auth'
-import { LoginArgs, useAuthMeQuery, useSingInMutation } from '@/shared/services'
+import { useAuthMeQuery, useSingInMutation } from '@/shared/services'
 
 export const SingInPage = () => {
-  const navigate = useNavigate()
   const [signIn] = useSingInMutation()
-  const { data: isAuth } = useAuthMeQuery()
+  const { isError, isLoading } = useAuthMeQuery()
 
-  useEffect(() => {
-    if (!isAuth) return
+  if (isLoading) return <h1>Loading...</h1>
+  if (!isError) return <Navigate to={'/decks'} replace={true} />
 
-    navigate('/')
-  }, [isAuth])
-
-  const handleLogin = async (args: LoginArgs) => {
-    await signIn(args)
-      .unwrap()
-      .then(() => navigate('/'))
-  }
-
-  return <SignInForm onSubmit={handleLogin} />
+  return <SignInForm onSubmit={signIn} />
 }

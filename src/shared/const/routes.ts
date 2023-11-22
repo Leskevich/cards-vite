@@ -6,4 +6,8 @@ export const routes = {
     NEW_PASSWORD: '/new-password',
     CHECK_EMAIL: '/check-email',
   },
+  DECKS: '/decks',
+  CARDS: '/cards',
+  LEARN: '/learn',
+  PROFILE: '/profile',
 }

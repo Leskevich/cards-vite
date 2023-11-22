@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { PrivateLayout, PublicLayout } from './layouts'
 
 import { publicRoutes, privateRoutes } from '@/app/routes'
-import { CommonLayout } from '@/app/routes/layouts/common-layout/CommonLayout.tsx'
+import { CommonLayout } from '@/app/routes/layouts/common-layout/common-layout.tsx'
 
 const router = createBrowserRouter([
   {
