@@ -1,5 +1,6 @@
 import s from './deck-sort-bar.module.scss'
 
+import { useDecks } from '@/pages/decks/lib/use-decks.ts'
 import { deckAction } from '@/pages/decks/model'
 import { Clear } from '@/shared/assets'
 import { useActions, useAppSelector } from '@/shared/lib'
@@ -7,13 +8,14 @@ import { useAuthMeQuery } from '@/shared/services'
 import { Button, Slider, Tabs, TextField } from '@/shared/ui'
 
 export const DeckSortBar = () => {
+  const { data: meData } = useAuthMeQuery()
+  const { data: decksData } = useDecks()
+
   const name = useAppSelector(state => state.decks.paramsDeck.name)
   const authorId = useAppSelector(state => state.decks.paramsDeck.authorId)
-  const minCardsCount = useAppSelector(state => state.decks.paramsDeck.minCardsCount)
-  const maxCardsCount = useAppSelector(state => state.decks.paramsDeck.maxCardsCount)
+  const sliderValue = useAppSelector(state => state.decks.sliderValue)
 
-  const { data: meData } = useAuthMeQuery()
-  const { setDeckParams } = useActions(deckAction)
+  const { setDeckParams, clearDecksParams, setSliderValue } = useActions(deckAction)
 
   return (
     <div className={s.container}>
@@ -37,13 +39,18 @@ export const DeckSortBar = () => {
       />
       <Slider
         className={s.slider}
-        minValue={+minCardsCount}
-        maxValue={+maxCardsCount}
+        value={[sliderValue[0], sliderValue[1] ? sliderValue[1] : decksData?.maxCardsCount!]}
+        min={0}
+        max={decksData?.maxCardsCount}
+        onValueChange={setSliderValue}
         onValueCommit={values => {
           setDeckParams({ minCardsCount: String(values[0]), maxCardsCount: String(values[1]) })
         }}
       />
-      <Button variant={'secondary'}>
+      <Button
+        onClick={() => clearDecksParams({ maxCardsCount: decksData?.maxCardsCount! })}
+        variant={'secondary'}
+      >
         <Clear width={16} />
         Clear Filter
       </Button>
