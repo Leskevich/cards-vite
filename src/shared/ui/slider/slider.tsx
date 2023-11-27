@@ -22,36 +22,26 @@ export const Slider: FC<SliderPropsType> = props => {
   const [sliderValues, setSliderValues] = useState<number[]>([minValue, maxValue])
   const onChangeHandler = (values: number[]) => setSliderValues(values)
 
-  const classNames = {
-    container: clsx(s.container, className),
-    wrapper: clsx(s.wrapper),
-    values: clsx(s.values),
-    root: clsx(s.root),
-    track: clsx(s.track),
-    range: clsx(s.range),
-    thumb: clsx(s.thumb),
-  }
-
   return (
-    <div className={classNames.container}>
+    <div className={s.container}>
       {label && <Typography variant={'body2'}>{label}</Typography>}
-      <div className={classNames.wrapper}>
-        <div className={classNames.values}>{sliderValues[0]}</div>
+      <div className={s.wrapper}>
+        <div className={s.values}>{sliderValues[0]}</div>
         <SliderRadix.Root
           value={sliderValues}
           max={maxValue}
-          className={classNames.root}
+          className={clsx(className, s.root)}
           step={step}
           onValueCommit={onValueCommit}
           onValueChange={onChangeHandler}
         >
-          <SliderRadix.Track className={classNames.track}>
-            <SliderRadix.Range className={classNames.range} />
+          <SliderRadix.Track className={s.track}>
+            <SliderRadix.Range className={s.range} />
           </SliderRadix.Track>
-          <SliderRadix.Thumb className={classNames.thumb} />
-          <SliderRadix.Thumb className={classNames.thumb} />
+          <SliderRadix.Thumb className={s.thumb} />
+          <SliderRadix.Thumb className={s.thumb} />
         </SliderRadix.Root>
-        <div className={classNames.values}>{sliderValues[1]}</div>
+        <div className={s.values}>{sliderValues[1]}</div>
       </div>
     </div>
   )

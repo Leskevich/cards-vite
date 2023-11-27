@@ -1,76 +1,86 @@
+@mixin typograpthy($fontSize, $lineHeight) {
+  font-size: $fontSize;
+  font-weight: var(--font-weight-regular);
+  line-height: $lineHeight;
+}
+
 .root {
-  width: 100%;
-}
+  & * {
+    @include typograpthy(var(--font-size-m), var(--line-height-m));
 
-.fieldContainer {
-  position: relative;
-  width: 100%;
-}
-
-.field {
-  width: 100%;
-  padding: 6px 12px;
-
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  color: var(--color-light-100);
-
-  background: transparent;
-  border: 1px solid var(--color-dark-300);
-  outline: 0;
-
-  transition: border-color 0.2s;
-
-  &::placeholder {
     color: var(--color-dark-100);
   }
+}
 
-  &:focus-visible {
-    border-color: var(--color-info-700);
-    outline: 1px solid var(--color-info-700);
-  }
+.inputContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.56rem;
+  align-items: center;
+
+  width: 100%;
+  padding: 0.37rem 0.75rem;
+
+  background-color: inherit;
+  border: 1px solid var(--color-dark-300);
+  border-radius: 0.125rem;
+  outline: 2px solid transparent;
 
   &:hover {
     background-color: var(--color-dark-700);
   }
 
-  &:active {
-    color: var(--color-light-100);
-    border-color: var(--color-light-100);
+  &:focus-within {
+    border: 1px solid transparent;
+    outline: 2px solid var(--color-info-700);
   }
 
   &.error {
     color: var(--color-danger-300);
-    border-color: var(--color-danger-300);
+    border: 1px solid var(--color-danger-300);
+    outline: 2px solid transparent;
   }
+
+  &.error .input {
+    color: var(--color-danger-300);
+  }
+}
+
+.inputWrapper {
+  width: 100%;
+}
+
+.textField {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  color: var(--color-light-100);
+
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
 
 .label {
-  margin-bottom: 1px;
-  color: var(--color-dark-100);
+  @include typograpthy(var(--font-size-s), var(--line-height-m));
 }
 
-.showPassword {
-  cursor: pointer;
+.errorLabel {
+  @include typograpthy(var(--font-size-xs), var(--line-height-m));
 
   position: absolute;
-  top: 50%;
-  right: 0;
-  bottom: 50%;
-  transform: translateY(-50%);
+  color: var(--color-danger-300);
+}
 
-  width: 20px;
-  height: 20px;
-  margin-right: 12px;
+.rightIcon {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+
   padding: 0;
 
-  background: transparent;
-  border: 0;
-  outline: 0;
-
-  &:focus-visible {
-    outline: var(--outline-focus);
-  }
+  background-color: transparent;
+  border: none;
 }

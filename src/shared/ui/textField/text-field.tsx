@@ -1,18 +1,26 @@
-import { ChangeEvent, ComponentProps, ComponentPropsWithoutRef, forwardRef, useState } from 'react'
+import {
+  ChangeEvent,
+  ComponentPropsWithoutRef,
+  HTMLInputTypeAttribute,
+  forwardRef,
+  useState,
+} from 'react'
 
-import { clsx } from 'clsx'
+import clsx from 'clsx'
 
-import s from './text-field.module.scss'
+import { Typography } from '..'
 
-import { EyeIcon, EyeOffIcon } from '@/shared/assets'
-import { Typography } from '@/shared/ui'
+import style from './text-field.module.scss'
+
+import { CloseIcon, Eye, EyeOff } from '@/shared/assets'
+import Search from '@/shared/assets/icons/search.tsx'
 
 export type TextFieldProps = {
   onValueChange?: (value: string) => void
-  containerProps?: ComponentProps<'div'>
-  labelProps?: ComponentProps<'label'>
-  errorMessage?: string
+  onClearInput?: () => void
   label?: string
+  errorMessage?: string
+  className?: string
 } & ComponentPropsWithoutRef<'input'>
 
 export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
@@ -21,74 +29,68 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       className,
       errorMessage,
       placeholder,
-      type,
-      containerProps,
-      labelProps,
+      type = 'text',
       label,
       onChange,
       onValueChange,
+      onClearInput,
+      value,
       ...restProps
     },
     ref
   ) => {
-    const [showPassword, setShowPassword] = useState(false)
-
-    const isShowPasswordButtonShown = type === 'password'
-
-    const finalType = getFinalType(type, showPassword)
-
-    function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    const classNames = {
+      root: clsx(style.root, className),
+      input: clsx(style.textField, !!errorMessage && style.error),
+      inputContainer: clsx(style.inputContainer, !!errorMessage && style.error),
+    }
+    const showIconHandler = () => setShowIcon(prev => !prev)
+    const clearInputHandler = () => {
+      onValueChange?.('')
+      onClearInput?.()
+    }
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       onChange?.(e)
       onValueChange?.(e.target.value)
     }
-
-    const classNames = {
-      root: clsx(s.root, containerProps?.className),
-      fieldContainer: clsx(s.fieldContainer),
-      field: clsx(s.field, !!errorMessage && s.error, className),
-      label: clsx(s.label, labelProps?.className),
-      error: clsx(s.error),
-    }
+    const [showIcon, setShowIcon] = useState(true)
 
     return (
       <div className={classNames.root}>
-        {label && (
-          <Typography variant="body2" as="label" className={classNames.label}>
-            {label}
-          </Typography>
-        )}
-        <div className={classNames.fieldContainer}>
-          <input
-            className={classNames.field}
-            placeholder={placeholder}
-            ref={ref}
-            type={finalType}
-            onChange={handleChange}
-            {...restProps}
-          />
-          {isShowPasswordButtonShown && (
-            <button
-              className={s.showPassword}
-              type={'button'}
-              onClick={() => setShowPassword(prev => !prev)}
-            >
-              {showPassword ? <EyeOffIcon /> : <EyeIcon />}
+        <Typography className={style.label}>{label}</Typography>
+        <div className={classNames.inputContainer} tabIndex={0}>
+          {type === 'search' && <Search />}
+          <div className={style.inputWrapper}>
+            <input
+              value={value}
+              type={generateType(type, showIcon)}
+              ref={ref}
+              className={classNames.input}
+              placeholder={placeholder}
+              onChange={handleChange}
+              {...restProps}
+            />
+          </div>
+
+          {type === 'password' && (
+            <button type="button" className={style.rightIcon} onClick={showIconHandler}>
+              {showIcon ? <EyeOff /> : <Eye />}
+            </button>
+          )}
+          {type === 'search' && value && (
+            <button type="button" className={style.rightIcon} onClick={clearInputHandler}>
+              <CloseIcon className={style.closeOutlineIcon} />
             </button>
           )}
         </div>
-
-        <Typography variant="error" className={classNames.error}>
-          {errorMessage}
-        </Typography>
+        {errorMessage && <Typography className={style.errorLabel}>{errorMessage}</Typography>}
       </div>
     )
   }
 )
 
-function getFinalType(type: ComponentProps<'input'>['type'], showPassword: boolean) {
-  if (type === 'password' && showPassword) {
-    return 'text'
-  }
-
-  return type
+const generateType = (type: HTMLInputTypeAttribute, showIcon: boolean) => {
+  if (type === 'password' && showIcon) {
+    return 'password'
+  } else 'text'
 }
