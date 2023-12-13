@@ -10,7 +10,7 @@ type Author = {
   name: string
 }
 
-type Items = {
+export type DecksType = {
   id: string
   userId: string
   name: string
@@ -29,7 +29,7 @@ type Items = {
 export type ResponseGetDecks = {
   maxCardsCount: number
   pagination: Pagination
-  items: Items[]
+  items: DecksType[]
 }
 export type DecksParams = {
   minCardsCount?: string
@@ -40,3 +40,16 @@ export type DecksParams = {
   currentPage?: number
   itemsPerPage?: number
 } | void
+
+export type CreateDeckParams = {
+  name: string
+  isPrivate?: boolean
+  cover?: string
+}
+
+export type UpdateDeckParams = {
+  id: string
+  name: string
+  isPrivate?: boolean
+  cover?: string
+}

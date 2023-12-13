@@ -44,7 +44,7 @@ export const SignInForm = (props: Props) => {
           />
           <ControlledTextField
             autoComplete={'off'}
-            placeholder={'Password'}
+            placeholder={'password'}
             label={'Password'}
             type={'password'}
             name={'password'}

@@ -1,13 +1,13 @@
 import { RouteObject } from 'react-router-dom'
 
-import { Decks } from '@/pages/decks/decks.tsx'
+import { DecksPage } from '@/pages'
 import { routes } from '@/shared/const'
 import { PersonalInformation } from '@/shared/ui'
 
 export const privateRoutes: RouteObject[] = [
   {
     path: routes.DECKS,
-    element: <Decks />,
+    element: <DecksPage />,
   },
   {
     path: routes.CARDS,

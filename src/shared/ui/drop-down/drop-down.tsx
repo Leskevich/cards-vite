@@ -56,9 +56,7 @@ export const Dropdown = ({ children, trigger, align = 'end', className, style }:
 
   return (
     <DropdownMenuRadix.Root open={open} onOpenChange={setOpen}>
-      <DropdownMenuRadix.Trigger asChild>
-        <button style={{ all: 'unset' }}>{trigger}</button>
-      </DropdownMenuRadix.Trigger>
+      <DropdownMenuRadix.Trigger asChild>{trigger}</DropdownMenuRadix.Trigger>
       <AnimatePresence>
         {open && (
           <DropdownMenuRadix.Portal forceMount>

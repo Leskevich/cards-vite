@@ -40,7 +40,7 @@ export const Tabs: FC<TabsProps> = ({
   onValueChange,
 }) => {
   const classNames = {
-    root: s.root,
+    root: clsx(s.root),
     list: clsx(s.list),
     trigger: clsx(s.trigger, fullWidth && s.fullWidth),
   }

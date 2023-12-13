@@ -1,5 +1,7 @@
 import { Navigate, Outlet } from 'react-router-dom'
 
+import s from './private-layout.module.scss'
+
 import { useAuthMeQuery } from '@/shared/services'
 
 export const PrivateLayout = () => {
@@ -7,5 +9,11 @@ export const PrivateLayout = () => {
 
   if (isLoading) return <div>Loading...</div>
 
-  return isError ? <Navigate to="/login" /> : <Outlet />
+  return isError ? (
+    <Navigate to="/login" />
+  ) : (
+    <div className={s.container}>
+      <Outlet />
+    </div>
+  )
 }

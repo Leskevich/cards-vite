@@ -1,58 +1,49 @@
-import { FC, useState } from 'react'
+import { forwardRef } from 'react'
 
-import * as SliderRadix from '@radix-ui/react-slider'
+import * as RadixSlider from '@radix-ui/react-slider'
 import { clsx } from 'clsx'
 
-import s from './slider.module.scss'
+import { Typography } from '..'
 
-import { Typography } from '@/shared/ui'
+import style from './slider.module.scss'
 
-export type SliderPropsType = {
-  minValue: number
-  maxValue: number
-  step?: number
-  label?: string
-  className?: string
-  onValueCommit: (values: number[]) => void
-}
-
-export const Slider: FC<SliderPropsType> = props => {
-  const { minValue = 0, maxValue = 100, label, className, step = 1, onValueCommit } = props
-
-  const [sliderValues, setSliderValues] = useState<number[]>([minValue, maxValue])
-  const onChangeHandler = (values: number[]) => setSliderValues(values)
-
-  const classNames = {
-    container: clsx(s.container, className),
-    wrapper: clsx(s.wrapper),
-    values: clsx(s.values),
-    root: clsx(s.root),
-    track: clsx(s.track),
-    range: clsx(s.range),
-    thumb: clsx(s.thumb),
-  }
-
-  return (
-    <div className={classNames.container}>
-      {label && <Typography variant={'body2'}>{label}</Typography>}
-      <div className={classNames.wrapper}>
-        <div className={classNames.values}>{sliderValues[0]}</div>
-        <SliderRadix.Root
-          value={sliderValues}
-          max={maxValue}
-          className={classNames.root}
-          step={step}
-          onValueCommit={onValueCommit}
-          onValueChange={onChangeHandler}
+export const Slider = forwardRef<HTMLSpanElement, RadixSlider.SliderProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <div className={clsx(style.SliderWrapper, className)}>
+        <div className={style.cardNumber}>
+          <Typography
+            aria-label="minValue"
+            variant="body1"
+            as="span"
+            style={{ position: 'absolute' }}
+          >
+            {props.value?.[0]}
+          </Typography>
+        </div>
+        <RadixSlider.Root
+          minStepsBetweenThumbs={1}
+          className={style.SliderRoot}
+          {...props}
+          ref={ref}
         >
-          <SliderRadix.Track className={classNames.track}>
-            <SliderRadix.Range className={classNames.range} />
-          </SliderRadix.Track>
-          <SliderRadix.Thumb className={classNames.thumb} />
-          <SliderRadix.Thumb className={classNames.thumb} />
-        </SliderRadix.Root>
-        <div className={classNames.values}>{sliderValues[1]}</div>
+          <RadixSlider.Track className={style.SliderTrack}>
+            <RadixSlider.Range className={style.SliderRange} />
+          </RadixSlider.Track>
+          <RadixSlider.Thumb key={1} className={style.SliderThumb} />
+          <RadixSlider.Thumb key={2} className={style.SliderThumb} />
+        </RadixSlider.Root>
+        <div className={style.cardNumber}>
+          <Typography
+            aria-label="maxValue"
+            variant="body1"
+            as="span"
+            style={{ position: 'absolute' }}
+          >
+            {props.value?.[1]}
+          </Typography>
+        </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
+)
