@@ -1,6 +1,7 @@
-import { DeckBody } from './deck-body'
-import { DeckHead } from './deck-head'
 import s from './deck-tabl.module.scss'
+import { DeckBody, DeckHead } from './ui'
+
+import { Table } from '@/shared/ui'
 
 export const DeckTable = () => {
   return (
@@ -12,5 +13,3 @@ export const DeckTable = () => {
     </div>
   )
 }
-
-import { Table } from '@/shared/ui'

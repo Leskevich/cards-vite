@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import { decksSlice } from '@/pages/decks/model'
+import { decksSlice } from '@/features/decks/model/deck-slice'
 import { baseApi } from '@/shared/services'
 
 export const store = configureStore({

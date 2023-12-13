@@ -46,3 +46,10 @@ export type CreateDeckParams = {
   isPrivate?: boolean
   cover?: string
 }
+
+export type UpdateDeckParams = {
+  id: string
+  name: string
+  isPrivate?: boolean
+  cover?: string
+}

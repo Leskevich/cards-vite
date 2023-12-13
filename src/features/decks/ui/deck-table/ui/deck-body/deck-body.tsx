@@ -1,5 +1,6 @@
-import { useDecks } from '@/pages/decks/lib/use-decks.ts'
-import { DeleteIcon, EditIcon, PlayCircleIcon } from '@/shared/assets'
+import { IconGroup } from './ui'
+
+import { useDecks } from '@/features/decks/lib/use-decks.ts'
 import { TableBody, TableCell, TableRow } from '@/shared/ui'
 
 export const DeckBody = () => {
@@ -15,9 +16,7 @@ export const DeckBody = () => {
             <TableCell>{new Date(el.updated).toLocaleDateString()}</TableCell>
             <TableCell>{el.author.name}</TableCell>
             <TableCell>
-              <PlayCircleIcon />
-              <EditIcon />
-              <DeleteIcon />
+              <IconGroup deck={el} />
             </TableCell>
           </TableRow>
         )

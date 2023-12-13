@@ -4,6 +4,7 @@ import {
   DecksParams,
   CreateDeckParams,
   DecksType,
+  UpdateDeckParams,
 } from '@/shared/services'
 
 const deckApi = baseApi.injectEndpoints({
@@ -18,7 +19,20 @@ const deckApi = baseApi.injectEndpoints({
       query: ({ name }) => ({ url: 'v1/decks', method: 'POST', body: { name } }),
       invalidatesTags: ['Decks'],
     }),
+    removeDeck: builder.mutation<DecksType, { id: string }>({
+      query: ({ id }) => ({ url: `v1/decks/${id}`, method: 'DELETE' }),
+      invalidatesTags: ['Decks'],
+    }),
+    editDeck: builder.mutation<DecksType, UpdateDeckParams>({
+      query: ({ id, ...body }) => ({ url: `v1/decks/${id}`, method: 'PATCH', body }),
+      invalidatesTags: ['Decks'],
+    }),
   }),
 })
 
-export const { useGetDecksQuery, useCreateDeckMutation } = deckApi
+export const {
+  useGetDecksQuery,
+  useCreateDeckMutation,
+  useRemoveDeckMutation,
+  useEditDeckMutation,
+} = deckApi

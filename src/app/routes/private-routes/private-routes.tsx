@@ -1,6 +1,6 @@
 import { RouteObject } from 'react-router-dom'
 
-import { DecksPage } from '@/pages/decks/ui/decks-page.tsx'
+import { DecksPage } from '@/pages'
 import { routes } from '@/shared/const'
 import { PersonalInformation } from '@/shared/ui'
 

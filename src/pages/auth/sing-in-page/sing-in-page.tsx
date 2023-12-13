@@ -8,7 +8,7 @@ export const SingInPage = () => {
   const { isError, isLoading } = useAuthMeQuery()
 
   if (isLoading) return <h1>Loading...</h1>
-  if (!isError) return <Navigate to={'/decks'} replace={true} />
+  if (!isError) return <Navigate to={'/decks-pages'} replace={true} />
 
   return <SignInForm onSubmit={signIn} />
 }

@@ -1,0 +1,87 @@
+button,
+fieldset,
+input {
+  all: unset;
+}
+
+.closeButtonTitle {
+  cursor: pointer;
+
+  margin: 0;
+  padding: 0;
+
+  background-color: transparent;
+  border: 0;
+}
+
+.DialogOverlay {
+  position: fixed;
+  inset: 0;
+
+  overflow-y: auto;
+  display: grid;
+  place-items: center;
+
+  background: rgba(0 0 0 / 50%);
+}
+
+.DialogContent {
+  position: fixed;
+  top: 15%;
+  left: 30%;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 1.5rem;
+
+  background-color: var(--color-dark-700);
+  border: 1px solid var(--color-dark-500);
+  border-radius: 0.125rem;
+
+  animation: contentShow 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modalTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 0;
+  padding: 1.12rem 0;
+
+  border-bottom: 1px solid var(--color-dark-500);
+}
+
+.ModalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 0;
+}
+
+.ModalFooter {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0 36px;
+}
+
+@keyframes overlay-show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes content-show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

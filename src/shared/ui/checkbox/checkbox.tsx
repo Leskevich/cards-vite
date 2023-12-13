@@ -17,9 +17,8 @@ export type CheckboxProps = {
   disabled?: boolean
   required?: boolean
   label?: string
-  id?: string
   position?: 'left'
-}
+} & CheckboxRadix.CheckboxProps
 
 export const Checkbox: FC<CheckboxProps> = ({
   checked,

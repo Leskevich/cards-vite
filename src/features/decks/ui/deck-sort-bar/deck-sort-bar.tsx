@@ -1,9 +1,12 @@
+import { useEffect, useState } from 'react'
+
+import { useDecks } from '../../lib/use-decks'
+import { deckAction } from '../../model/deck-slice'
+
 import s from './deck-sort-bar.module.scss'
 
-import { useDecks } from '@/pages/decks/lib/use-decks.ts'
-import { deckAction } from '@/pages/decks/model'
 import { Clear } from '@/shared/assets'
-import { useActions, useAppSelector } from '@/shared/lib'
+import { useActions, useAppSelector, useDebounce } from '@/shared/lib'
 import { useAuthMeQuery } from '@/shared/services'
 import { Button, Slider, Tabs, TextField } from '@/shared/ui'
 
@@ -11,7 +14,13 @@ export const DeckSortBar = () => {
   const { data: meData } = useAuthMeQuery()
   const { data: decksData } = useDecks()
 
-  const name = useAppSelector(state => state.decks.paramsDeck.name)
+  const [name, setName] = useState<string>('')
+  const debounce = useDebounce(name, 500)
+
+  useEffect(() => {
+    setDeckParams({ name })
+  }, [debounce])
+
   const authorId = useAppSelector(state => state.decks.paramsDeck.authorId)
   const sliderValue = useAppSelector(state => state.decks.sliderValue)
 
@@ -19,14 +28,7 @@ export const DeckSortBar = () => {
 
   return (
     <div className={s.container}>
-      <TextField
-        type={'search'}
-        className={s.searchField}
-        value={name}
-        onValueChange={name => {
-          setDeckParams({ name })
-        }}
-      />
+      <TextField type={'search'} className={s.searchField} value={name} onValueChange={setName} />
       <Tabs
         tabs={[
           { value: meData?.id!, title: 'My Cards' },
