@@ -12,7 +12,16 @@ export * from './profile'
 export * from './radio-group'
 export * from './scrollbar'
 export * from './select'
-export * from './table'
+export {
+  TableHeadCell,
+  TableHead,
+  TableRow,
+  HeaderTable,
+  Table,
+  TableCell,
+  TableBody,
+  TableEmpty,
+} from './table'
 export * from './tabs'
 export * from './textField'
 export * from './typography'
