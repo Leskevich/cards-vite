@@ -23,7 +23,6 @@ export const DeckHead = () => {
     {
       key: 'author.name',
       title: 'Author',
-      sortable: true,
     },
     {
       key: 'actions',
