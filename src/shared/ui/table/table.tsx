@@ -4,6 +4,8 @@ import { clsx } from 'clsx'
 
 import s from './table.module.scss'
 
+import { Sort } from '@/features/decks/model'
+import { Chevron } from '@/shared/assets'
 import { Typography } from '@/shared/ui'
 
 export const Table = forwardRef<HTMLTableElement, ComponentPropsWithoutRef<'table'>>(
@@ -73,5 +75,53 @@ export const TableEmpty: FC<ComponentProps<'div'> & { mt?: string; mb?: string }
     >
       Пока тут еще нет данных! :(
     </Typography>
+  )
+}
+
+export type Column = {
+  title: string
+  key: string
+  sortable?: boolean
+}
+type Props = Omit<
+  {
+    columns: Column[]
+    sort?: Sort
+    onSort?: (sort: Sort) => void
+  } & ComponentPropsWithoutRef<'thead'>,
+  'children'
+>
+
+export const HeaderTable = (props: Props) => {
+  const { onSort, sort, columns, ...restProps } = props
+
+  const handleSort = (key: string, sortable?: boolean) => () => {
+    if (!onSort || !sortable) return
+
+    if (sort?.key !== key) return onSort({ key, direction: 'asc' })
+
+    if (sort.direction === 'desc') return onSort(null)
+
+    return onSort({
+      key,
+      direction: sort?.direction === 'asc' ? 'desc' : 'asc',
+    })
+  }
+
+  const classNames = {
+    chevron: sort?.direction === 'asc' ? '' : s.chevronDown,
+  }
+
+  return (
+    <TableHead {...restProps}>
+      <TableRow>
+        {columns.map(({ title, key, sortable }) => (
+          <TableHeadCell key={key} onClick={handleSort(key, sortable)}>
+            {title}
+            {sort?.key === key ? <Chevron className={classNames.chevron} /> : ''}
+          </TableHeadCell>
+        ))}
+      </TableRow>
+    </TableHead>
   )
 }
